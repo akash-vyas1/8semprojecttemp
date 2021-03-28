@@ -1,0 +1,15 @@
+.reg {
+    margin-top: 25px;
+}
+
+.rset {
+    margin: 5 0;
+}
+
+.rset>input {
+    height: 35px;
+}
+.rset>label {
+    font-size: 16px;
+}
+

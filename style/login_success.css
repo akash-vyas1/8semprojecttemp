@@ -1,0 +1,167 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+
+    --blue: #3d5a80ff;
+    --cerulean: #98c1d9ff;
+    --cyan: #e0fbfcff;
+    --sienna: #ee6c4dff;
+    --gunmetal: #293241ff;
+
+    /*
+    --red: #e63946ff;
+    --lightblue: #f1faeeff;
+    --powderblue: #a8dadcff;
+    --celadonblue: #457b9dff;
+    --prussianblue: #1d3557ff; */
+}
+
+
+.all {
+    width: 100%;
+    min-height: 100%;
+    z-index: 1;
+}
+.all>h1 {
+    width: 100%;
+    height: 75px;
+    background: var(--blue);
+    line-height: 1.6;
+    text-align: center;
+    font-size: 40px;
+    color: antiquewhite;
+}
+
+.parts {
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: row;
+    align-items: stretch;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin-top: 30px;
+    visibility: visible;
+}
+
+section {
+    width: 250px;
+    min-height: 150px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0px;
+    border: 3px solid var(--gunmetal);
+    border-radius: 7px;
+    margin: 20px;
+    background: rgb(228, 228, 228);
+}
+
+section>h2 {
+    width: 100%;
+    display: block;
+    background: var(--gunmetal);
+    color: var(--sienna);
+    text-align: center;
+    margin-bottom: 10px;
+    padding-bottom: 5px;
+    border-radius: 3px 3px 0 0;
+}
+
+section>button {
+    width: 115px;
+    font-size: 18px;
+    border: 2px solid var(--gunmetal);
+    outline: none;
+    padding: 7px 15px;
+    box-shadow: 0 0 4px var(--gunmetal);
+    border-radius: 5px;
+    margin: 10px 0;
+}
+
+.links {
+    margin-top: 10px !important;
+}
+
+#frgt_pass ,#set_admin_pass{
+    width: 210px;
+    border: none;
+    outline: none;
+    padding: 7px 15px;
+    box-shadow: none;
+    border-radius: 0px;
+    background: none;
+    color: var(--blue);
+    display: block;
+    text-align: center;
+    font-weight: 550;
+}
+
+#frgt_pass:active ,#set_admin_pass:active{
+    color: var(--sienna);
+}
+
+button{
+    cursor: pointer;
+}
+
+
+section>button:active {
+    box-shadow: 0 0 0 grey;
+}
+
+section>a {
+    display: block;
+    width: 200px;
+    text-align: center;
+    margin: 7px 0;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 17px;
+}
+
+
+.customer>button,.kitchen>button {
+    margin-top: 30px;
+}
+
+
+.k_login_section,.admin_login_section,.forgot_pass {
+    width: 350px;
+    z-index: 1;
+    position: absolute;
+    top: 87px;
+    display: none;
+    box-sizing: border-box;
+}
+
+
+
+.admin>button:active,
+.customer>button:active,
+.kitchen>button:active {
+    border: 2px solid var(--sienna);
+}
+
+button>a {
+    text-decoration: none;
+    color: white;
+}
+
+
+footer {
+    width: 100%;
+    height: 50px;
+    text-align: right;
+    background-color: var(--gunmetal);
+    font-size: 19px;
+    font-weight: 600;
+    color: var(--sienna);
+    line-height: 2.5;
+    padding: 0 15px;
+    box-sizing: border-box;
+    z-index: 1;
+}

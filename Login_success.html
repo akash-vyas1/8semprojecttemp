@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant Name</title>
+    <link rel="stylesheet" href="style/login_success.css" type="text/css">
+    <link rel="stylesheet" href="style/r_login.css" type="text/css">
+    
+</head>
+
+<body>
+    <div class="all">
+        <h1>Restaurant Name</h1>
+        <div class="parts">
+            <section class="admin">
+                <h2>Admin</h2>
+                <button type="submit" id="a_login" >Login</button>
+                
+                <div class="links">
+                    <button type="submit" id="frgt_pass">
+                        Forgot password?
+                    </button>
+                    <!-- <button type="submit" id="set_admin_pass">
+                        Set Admin password
+                    </button> -->
+                </div>
+
+            </section>
+            <section class="customer">
+                <h2>Customer</h2>
+                    <button type="submit">
+                        <a href="" id="cust">Open</a>
+                        <!-- <a href="customer.html" target="blank">Open</a> -->
+                    </button>
+                <!-- <a href="">Forgot password?</a> -->
+                <!-- <a href="">Set Admin password</a> -->
+            </section>
+            <section class="kitchen">
+                <h2>Kitchen</h2>
+                <button type="submit" id="k_login">Login</button>
+                <!-- <a href="">Forgot password?</a> -->
+            </section>
+        </div>
+    </div>
+
+    <section class="admin_login_section">
+        <h2>Admin Login</h2>
+        <div class="main">
+            <form action="">
+                <span class="set kpass">
+                    <label for="admin_pass" id="admin_pass_label">Enter Password  </label>
+                    <input type="password" name="" id="admin_pass" required>
+                </span>
+                <div class="btns">
+                    <button type="submit" id="admin_btn">
+                        <a href="" >Login</a>
+                        <!-- <a href="admin.html" target="blank">Submit</a> -->
+                    </button>
+                    <button type="submit" id="admin_cancel_btn">
+                        <a href="" >Cancel</a>
+                        <!-- <a href="admin.html" target="blank">Submit</a> -->
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <section class="k_login_section">
+        <h2>Kitchen Login</h2>
+        <div class="main">
+            <form action="">
+                <span class="set kpass">
+                    <label for="k_pass" id="k_pass_label">Enter Password  </label>
+                    <input type="password" name="" id="k_pass" required>
+                </span>
+                <div class="btns">
+                    <button type="submit" id="kitchen_btn">
+                        <a href="" >Login</a>
+                        <!-- <a href="admin.html" target="blank">Submit</a> -->
+                    </button>
+                    <button type="submit" id="kitchen_cancel_btn">
+                        <a href="" >Cancel</a>
+                        <!-- <a href="admin.html" target="blank">Submit</a> -->
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+
+    <section class="forgot_pass">
+        <h2>Forgot password</h2>
+        <div class="main">
+            <form action="">
+                <span class="set fotp">
+                    <label for="k_pass" id="f_otp_label">Enter OTP  </label>
+                    <input type="number" name="" id="f_otp" required>
+                </span>
+                <span class="set fpass">
+                    <label for="k_pass" id="f_pass_label">Enter new password  </label>
+                    <input type="password" name="" id="f_pass" required>
+                </span>
+                <span class="set fpass">
+                    <label for="k_pass" id="f_pass_label">Enter new password again  </label>
+                    <input type="password" name="" id="f_pass" required>
+                </span>
+                <div class="btns">
+                    <button type="submit" id="fpass_btn">
+                        <a href="" >Login</a>
+                        <!-- <a href="admin.html" target="blank">Submit</a> -->
+                    </button>
+                    <button type="submit" id="fpass_cancel_btn">
+                        <a href="" >Cancel</a>
+                        <!-- <a href="admin.html" target="blank">Submit</a> -->
+                    </button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        Smart Restaurant
+    </footer>
+    <script src="script/jquery-3.5.1.min.js"></script>
+    <script src="script/k_script.js"></script>
+</body>
+
+</html>
