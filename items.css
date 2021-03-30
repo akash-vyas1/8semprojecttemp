@@ -1,0 +1,328 @@
+:root {
+
+    --blue: #3d5a80ff;
+    --cerulean: #98c1d9ff;
+    --cyan: #e0fbfcff;
+    --sienna: #ee6c4dff;
+    --gunmetal: #293241ff;
+
+}
+
+body{
+    width: 100%;
+}
+
+.items{
+    display: none;
+    width: 1050px !important;
+    height: 550px;
+    overflow: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow:  0 0 5px var(--blue);
+}
+.items h2 {
+    border-radius: 5px 5px 0 0 ;
+}
+
+.items .list {
+    display: flex;
+    flex-direction: row;
+    border-bottom: 3px solid var(--gunmetal);
+    padding: 5px;
+    align-items: center;
+    justify-content: space-around;
+    opacity: 1;
+    flex-wrap: wrap;
+}
+.items .list>.add, .items .list>.remove {
+    display: flex;
+} 
+
+.items .list button {
+    width: 100px;
+    height: 50px;
+    display: block;
+    border: 2px solid black;
+    background: var(--sienna);
+    padding: 5px 10px;
+    border-radius: 7px;
+    margin: 10px;
+    font-size: 17px;
+    font-weight: 600;
+    outline: none;
+    box-shadow: 0 0 7px var(--gunmetal);
+    color: var(--gunmetal);
+}
+
+
+.items .list button:active {
+    box-shadow:  0 0 0 black;
+}
+
+.items .cats  .allcats{
+    width: 300px;
+    height: 300px;
+    /* padding: 10px; */
+    border: 2px solid var(--gunmetal);
+    margin: 10px 0 0 10px;
+    box-shadow: 0 0 7px var(--gunmetal);
+    border-radius: 7px;
+    background: rgb(227, 231, 236);
+    overflow: auto;
+    /* overflow-x: hidden; */
+}
+
+.allcats>h3 {
+    /* width: 100%; */
+    background: var(--gunmetal);
+    padding: 10px;
+    color: whitesmoke;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 10px;
+}
+
+.items .cats ul li {
+    width: 250px;
+    list-style: none;
+    font-size: 17px;
+    margin-bottom: 15px;
+    padding-left: 12px;
+}
+
+.items .cats ul li h3{
+    cursor: pointer;
+    padding-bottom: 5px;
+    border-bottom: 3px solid var(--sienna);
+}
+
+.items .cats ul li ul  {
+    list-style: none;
+    margin-left: 0px;
+    font-weight: 500;
+}
+
+.items .cats ul li ul  {
+    display:none;
+    /* transition: 3s all ease-in-out !important; */
+}
+
+.display {
+    display:block !important;
+}
+
+
+
+
+
+
+/* add item */
+.in {
+    position: absolute;
+    width: 350px;
+    height: 460px;
+    top: 80px;
+    left: 45%;
+    /* padding: 10px; */
+    border: 3px solid black;
+    /* display: none; */
+    background: #fff;
+    border-radius: 10px;
+    z-index: 10;
+    display:none;
+}
+
+.in h2 {
+    background: var(--gunmetal);
+    padding: 5px;
+    text-align: center;
+    color: var(--sienna);
+    border-radius: 5.5px 5.5px 0 0 ;
+}
+
+.in form {
+    display: flex;
+    flex-direction: column;
+    align-items: stretch;
+    justify-content: center;
+    padding: 15px;
+    box-sizing: border-box;
+}
+
+.in form span {
+    display: flex;
+    flex-direction: column;
+}
+.in form span input {
+    height: 28px;
+    outline: none;
+    border: none;
+    border-bottom: 3px solid var(--blue);
+    font-size: 16.5px;
+    padding-left: 5px;
+    background: whitesmoke;
+    border-radius: 3px 3px 0 0;
+    margin-top: 3px;
+    font-weight: 500;
+}
+
+.in form span label {
+    font-style: italic;
+    font-size: 14.5px;
+    color: var(--gunmetal);
+    font-weight: 500;
+}
+
+.in form textarea {
+    max-width: 100%;
+    max-height: 75px;
+    min-width: 100%;
+    min-height: 75px;
+    font-size: 16px;
+    margin-top: 5px;
+    border: 2px solid var(--blue);
+    border-radius: 5px;
+    text-indent: 10px;
+    outline: none;
+    padding-top: 3px;
+    background: whitesmoke;
+}
+
+.in form button {
+    width: 125px;
+    align-self: center;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    outline: none;
+    border: 2px solid var(--gunmetal);
+    border-radius:4px ;
+    box-shadow: 0 0 5px var(--gunmetal);
+    background: var(--blue);
+    color: #fff;
+    font-size: 17px;
+    word-spacing: 2px;
+}
+
+.in form button:active {
+    box-shadow: 0 0 0 black;
+    border: 2px solid var(--sienna);
+}
+
+.in form .btns {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+}
+
+.addcat {
+    height: 315px;
+    position: absolute;
+}
+
+.tcat {
+    margin-top: 7px;
+    position: relative;
+    cursor: pointer;
+}
+.tcat li:not(:first-child){
+    margin: -13px 0;
+    /* border: 1px solid black; */
+}
+.tcat li button {
+    width: 90%;
+    height: 30px;
+    margin: 0 !important;
+    text-align: left;
+    border: none;
+    background: rgb(227, 231, 236);
+    padding: 2px 5px ;
+    cursor: pointer;
+    font-size:17px;
+    font-weight: 500;
+    outline: none;
+    border-radius: 5px;
+    transition: 0.15s all;
+    user-select: none;
+    overflow: auto;
+}
+
+.tcat li button:active{
+    background: var(--blue) !important;
+    color: white;
+    box-shadow: 0 0 5px var(--gunmetal);
+}
+.tcat li button:hover{
+    background: rgb(209, 218, 229);
+    font-size: 18px;
+}
+
+/* showitem */
+.showitem{
+    width: 300px;
+    height: 325px;
+    position: absolute;
+    top: 25%;
+    left: 50%;
+    border: 2px solid var(--gunmetal);
+    padding: 10px;
+    overflow: auto;
+    border-radius: 7px;
+    background: rgb(234, 238, 243);
+    display: none;
+    transition: 0.5s all ease-in-out;
+}
+.showitem span {
+    display: block;
+    margin: 7px 0;
+}
+
+.showitem span h5{
+    width: max-content;
+    font-style: italic;
+    font-size: 15px;
+    border-bottom: 2px solid var(--sienna);
+    margin-bottom: 5px;
+    color: var(--gunmetal);
+    padding-bottom: 2px;
+}
+
+.showitem span p{
+    font-size: 18px;
+}
+
+.showitem button {
+    width: 100px;
+    height: 30px;
+    margin-top: 20px;
+    background: var(--blue);
+    outline: none;
+    border: 2px solid var(--blue);
+    border-radius: 3px;
+    font-size: 17px;
+    padding: 5px 20px;
+    color: whitesmoke;
+    box-shadow: 0 0 5px var(--gunmetal);
+}
+
+.showitem button:active{
+    box-shadow: 0 0 0px var(--gunmetal);
+    border: 2px solid var(--sienna);
+}
+
+#edititembtn {
+    width: max-content;
+    margin-left: 30px;
+}
+
+.addcat {
+    top: 25%;
+    left: 50%;
+}
+
+.additem {
+    left: 50%;
+    top: 14%;
+}
+

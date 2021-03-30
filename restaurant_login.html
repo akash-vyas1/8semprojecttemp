@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style/r_login.css" type="text/css">
+    <title>Restaurant Login</title>
+</head>
+
+<body>
+    <!-- <section class="left"></section> -->
+    <div class="login">
+        <h3>Restaurant Login</h3>
+        <div class="main">
+            <form action="">
+                <span class="set lmail">
+                    <label for="l_mail" id="l_mail_label">Enter E-mail  </label>
+                    <input type="email" name="" id="l_mail" required >
+                </span>
+                <span class="set lpass">
+                    <label for="l_pass" id="l_pass_label">Enter Password  </label>
+                    <input type="password" name="" id="l_pass" required>
+                </span>
+                <div class="btns">
+                    <button type="reset">Reset</button>
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+            <div class="links">
+                <a href="#" id="fgt_pass">Forgot password?</a> <br>
+                <!-- <a href="new_res.html">Register new restaurant</a> -->
+                <a href="">Register new restaurant</a>
+            </div>
+        </div>
+    </div>
+
+    <section class="fpass">
+        <h3>Set New Password</h3>
+        <div class="main">
+            <form action="">
+                <span class="set fotp">
+                    <label for="l_mail" id="f_otp_label">Enter OTP </label>
+                    <input type="number" name="" id="f_otp" required >
+                </span>
+                <span class="set fpass1">
+                    <label for="l_pass" id="f_pass1_label">Enter New Password  </label>
+                    <input type="password" name="" id="f_pass1" required>
+                </span>
+                <span class="set fpass2">
+                    <label for="l_pass" id="f_pass2_label">Enter New Password Again  </label>
+                    <input type="password" name="" id="f_pass2" required>
+                </span>
+                <div class="btns">
+                    <button type="reset" id="freset">Reset</button>
+                    <button type="submit" id="fcancel" >Cancel</button>
+                    <button type="submit" id="fsubmit" >Submit</button>
+                </div>
+            </form>
+        </div>
+    </section>
+
+    <footer>
+        Smart Restaurant
+    </footer>
+    <script src="script/jquery-3.5.1.min.js"></script>
+    <script src="script/script.js"></script>
+
+</body>
+
+</html>

@@ -1,0 +1,362 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin</title>
+    <link rel="stylesheet" href="admin.css" type="text/css">
+    <link rel="stylesheet" href="items.css" type="text/css">
+    <link rel="stylesheet" href="setpass.css" type="text/css">
+    <link rel="stylesheet" href="order.css" type="text/css">
+    <!-- <link rel="stylesheet" href="../style/login_success.css" type="text/css"> -->
+    <link rel="stylesheet" href="" type="text/css">
+</head>
+<body>
+
+    <div class="all">
+        <aside id="sidebar">
+            <h2>Admin Pannel</h2>
+            <ul>
+                <li>
+                    <span class="icon"></span>
+                    <span class="title">
+                        <button type="submit" id="openOrders" >Orders</button>
+                    </span>
+                </li>
+                <li>
+                    <span class="icon"></span>
+                    <span class="title">
+                        <button type="submit" id="openItems" >Items</button>
+                    </span>
+                </li>
+
+                <li>
+                    <span class="icon"></span>
+                    <span class="title">
+                        <button type="submit" id="openSetpass" >Set Password</button>
+                    </span>
+                </li>
+            </ul>
+        </aside>
+
+
+        <!-- Orders -->
+        <section class="side orders">
+            <h2>Current Active Orders</h2>
+            <div class="activeorders">
+                <section class="orderbox ">
+                    <span>
+                        <h4>Order ID :</h4>
+                        <p>243284293478</p>
+                    </span>
+                    <span>
+                        <h4>Table Number :</h4>
+                        <p>2</p>
+                    </span>
+                    <span>
+                        <h4>Order Price :</h4>
+                        <p>1500.0 Rs.</p>
+                    </span>
+                    <span>
+                        <h4>Items :</h4>
+                            <span>
+                                <h5>Khaman</h5>
+                                <p>2 plates</p>
+                            </span>
+                            <span>
+                                <h5>Chapati</h5>
+                                <p>12</p>
+                            </span>
+                            <span>
+                                <h5>Rotala</h5>
+                                <p>3</p>
+                            </span>
+                            <span>
+                                <h5>Khichadi</h5>
+                                <p>2 plates</p>
+                            </span>
+                            <span class="paymentsuccess">Payment Success</span>
+                        </span>
+                </section>
+
+                <section class="orderbox">
+                    <span>
+                        <h4>Order ID :</h4>
+                        <p>243284293478</p>
+                    </span>
+                    <span>
+                        <h4>Table Number :</h4>
+                        <p>2</p>
+                    </span>
+                    <span>
+                        <h4>Order Price :</h4>
+                        <p>1500.0 Rs.</p>
+                    </span>
+                    <span>
+                        <h4>Items :</h4>
+                            <span>
+                                <h5>Khaman</h5>
+                                <p>2 plates</p>
+                            </span>
+                            <span>
+                                <h5>Chapati</h5>
+                                <p>12</p>
+                            </span>
+                            <span>
+                                <h5>Rotala</h5>
+                                <p>3</p>
+                            </span>
+                            <span>
+                                <h5>Khichadi</h5>
+                                <p>2 plates</p>
+                            </span>
+                            <span class="paymentsuccess">Payment Success</span>
+                        </span>
+                </section>
+                <section class="orderbox">
+                    <span>
+                        <h4>Order ID :</h4>
+                        <p>243284293478</p>
+                    </span>
+                    <span>
+                        <h4>Table Number :</h4>
+                        <p>2</p>
+                    </span>
+                    <span>
+                        <h4>Order Price :</h4>
+                        <p>1500.0 Rs.</p>
+                    </span>
+                    <span>
+                        <h4>Items :</h4>
+                            <span>
+                                <h5>Khaman</h5>
+                                <p>2 plates</p>
+                            </span>
+                            <span>
+                                <h5>Chapati</h5>
+                                <p>12</p>
+                            </span>
+                            <span>
+                                <h5>Rotala</h5>
+                                <p>3</p>
+                            </span>
+                            <span>
+                                <h5>Khichadi</h5>
+                                <p>2 plates</p>
+                            </span>
+                            <span class="payment">Payment Pending</span>
+                        </span>
+                </section>
+                <section class="orderbox">
+                    <span>
+                        <h4>Order ID :</h4>
+                        <p>243284293478</p>
+                    </span>
+                    <span>
+                        <h4>Table Number :</h4>
+                        <p>2</p>
+                    </span>
+                    <span>
+                        <h4>Order Price :</h4>
+                        <p>1500.0 Rs.</p>
+                    </span>
+                    <span>
+                        <h4>Items :</h4>
+                            <span>
+                                <h5>Khaman</h5>
+                                <p>2 plates</p>
+                            </span>
+                            <span>
+                                <h5>Chapati</h5>
+                                <p>12</p>
+                            </span>
+                            <span>
+                                <h5>Rotala</h5>
+                                <p>3</p>
+                            </span>
+                            <span>
+                                <h5>Khichadi</h5>
+                                <p>2 plates</p>
+                            </span>
+                            <span class="payment">Payment Pending</span>
+                        </span>
+                </section>
+                
+            </div>
+        </section>
+
+        <!-- set password -->
+        <section class="side setpassword">
+            <h2>Set Passwords</h2>
+            <span id="setpassbtns">
+                <button type="submit" id="setapassbtn">Set Admin Password</button>
+                <button type="submit" id="setkpassbtn">Set Kitchen Password</button>
+            </span>
+
+            <section class="setApass in">
+                <h2>Set admin password</h2>
+                    <form action="">
+                        <span class="input saotp">
+                            <label for="sa_otp" id="sa_otp_label">Enter OTP </label>
+                            <input type="number" name="" id="sa_otp" required >
+                        </span><br>
+                        <span class="input sapass">
+                            <label for="sa_pass" id="sa_pass_label">Enter password  </label>
+                            <input type="password" name="" id="sa_pass" required>
+                        </span><br>
+                        <span class="input sapass2">
+                            <label for="sa_pass2" id="sa_pass2">Enter password again   </label>
+                            <input type="password" name="" id="sa_pass2" >
+                        </span><br>
+                        <span class="btns">
+                            <button type="submit" id="sapassbtn">Submit</button>
+                            <button type="submit" id="sapasscancelbtn">Cancel</button>
+                        </span>
+                    </form>
+            </section>
+
+            <section class="setKpass in">
+                <h2>Set Kitchen password</h2>
+                    <form action="">
+                        <span class="input skotp">
+                            <label for="sk_otp" id="sk_otp_label">Enter OTP </label>
+                            <input type="number" name="" id="sk_otp" required >
+                        </span><br>
+                        <span class="input skpass">
+                            <label for="sk_pass" id="sk_pass_label">Enter password  </label>
+                            <input type="password" name="" id="sk_pass" required>
+                        </span><br>
+                        <span class="input skpass2">
+                            <label for="sa_pass2" id="sk_pass2">Enter password again   </label>
+                            <input type="password" name="" id="sk_pass2" >
+                        </span><br>
+                        <span class="btns">
+                            <button type="submit" id="skpassbtn">Submit</button>
+                            <button type="submit" id="skpasscancelbtn">Cancel</button>
+                        </span>
+                    </form>
+            </section>
+
+        </section>
+
+        <!-- item -->
+        <section class="side items">
+            <h2>Restaurant name</h2>
+            <div class="list">  
+                <div class="add">
+                    <button type="submit" id="addCat" >
+                        Add Category
+                    </button>
+                    <button type="submit" id="addItem">
+                        Add Item
+                    </button>
+                </div>
+                <div class="remove">
+                    <button type="submit" id="deleteCat" >
+                        Delete Category
+                    </button>
+                    <button type="submit" id="deleteItem">
+                        Delete Item
+                    </button>
+                </div>
+            </div>
+            <section class="cats">
+                <ul class="allcats">
+                    <h3>Categories</h3>
+                    <li>
+                        <h3 class="opencat" onclick="opencat('cat1')">Gujrati</h3>
+                        <ul class="tcat cat1">
+                            <li><button>Dhokla</button></li>                            
+                            <li><button onclick="showItem()">Khaman</button></li>                            
+                            <li><button>Vaghareli-Khichadi</button></li>                            
+                            <li><button>Chapati</button></li>                            
+                            <li><button>Rotala</button></li>                            
+                        </ul>
+                    </li>
+                    <li>
+                        <h3 class="opencat" onclick="opencat('cat2')">Punjabi</h3>
+                        <ul class="tcat cat2">
+                            <li ><button>Shahi-Panner</button></li>                            
+                            <li><button>Kaju-kari</button></li>                            
+                            <li><button>Paratha</button></li>                            
+                            <li><button>Nan</button></li>                            
+                        </ul>
+                    </li>
+                </ul>
+            </section>
+        
+            <div class="additem in">
+                <h2>Add Item</h2>
+                    <form action="">
+                        <span class="input additm">
+                            <label for="itemname" id="itemname_label">Item Name  </label>
+                            <input type="text" name="" id="itemname" required >
+                        </span><br>
+                        <span class="input additmprice">
+                            <label for="item_price" id="item_price_label">Item Price  </label>
+                            <input type="number" name="" id="item_price" required>
+                        </span><br>
+                        <span class="input additmcat">
+                            <label for="item_cat" id="item_cat_label">Category  </label>
+                            <input type="text" name="" id="item_cat" >
+                        </span><br>
+                        <span class="input additmdes">
+                            <label for="description" id="item_cat_label">Description   </label>
+                            <textarea name="" id="description" cols="30" rows="5" placeholder="Optional"></textarea>
+                        </span><br>
+                        <span class="btns">
+                            <button type="submit" id="addItemBtn">Submit</button>
+                            <button type="submit" id="addItemCancel">Cancel</button>
+                        </span>
+                    </form>
+            </div>
+            <div class="addcat in">
+                <h2>Add Item</h2>
+                    <form action="#">
+                        <span class="input addct">
+                            <label for="item_cat" id="item_cat_label">Category  </label>
+                            <input type="text" name="" id="item_cat" required>
+                        </span><br>
+                        <span class="input additm">
+                            <label for="description" id="item_cat_label">Description   </label>
+                            <textarea name="" id="description" cols="30" rows="5" placeholder="Optional"></textarea>
+                        </span><br>
+                        <span class="btns">
+                            <button type="submit" id="addCatBtn" onclick="addCategory()">Submit</button>
+                            <button type="submit" id="addCatCancel">Cancel</button>
+                        </span>
+                    </form>
+                </div>
+
+                <div class="showitem">
+                    <span class="data iname">
+                        <h5>Item Name</h5>
+                        <p>Khaman</p>
+                    </span>
+                    <span class="data iprice">
+                        <h5>Item Price(Kg)</h5>
+                        <p>100</p>
+                    </span>
+                    <span class="data icat">
+                        <h5>Item category</h5>
+                        <p>Gujrati</p>
+                    </span>
+                    <span class="data ides">
+                        <h5>Item Discription</h5>
+                        <p>Khaman is a famous gujrati dish</p>
+                    </span>
+                    <button type="submit" onclick="closeItem()" >Close</button>
+                    <button type="submit" id="edititembtn" onclick="editItem()" >Edit Details</button>
+                </div>
+
+        </section>
+
+    </div>
+    <footer>
+        Smart Restaurant
+    </footer>
+    <script src="../script/jquery-3.5.1.min.js"></script>
+    <script src="admin.js"></script>
+</body>
+</html>

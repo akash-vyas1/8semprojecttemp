@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Restaurant registration</title>
+    <link rel="stylesheet" href="style/r_login.css" type="text/css">
+    <link rel="stylesheet" href="style/r_reg.css" type="text/css">
+</head>
+<body>
+    <div class="reg">
+        <h3>Restaurant Registration</h3>
+        <div class="main">
+            <form action="#">
+                <span class="rset rmail">
+                    <label for="r_mail" id="r_mail_label">Enter E-mail  </label>
+                    <input type="email" name="" id="r_mail" required >
+                </span>
+                <span class="rset rpass">
+                    <label for="r_pass" id="r_pass_label">Enter Password  </label>
+                    <input type="password" name="" id="r_pass" required>
+                </span>
+                <span class="rset lpass">
+                    <label for="r_phone" id="r_phone_label">Enter Phone Number  </label>
+                    <input type="number" name="" id="r_phone" required>
+                </span>
+                <span class="rset lpass">
+                    <label for="r_pass" id="r_rname_label">Enter Restaurant Name  </label>
+                    <input type="text" name="" id="r_rname" required>
+                </span>
+                <div class="btns">
+                    <button type="reset" id="reset">Reset</button>
+                    <button type="submit" >Submit</button>
+                </div>
+            </form>
+        </div>
+    </div>
+    <footer>
+        Smart Restaurant
+    </footer>
+    <script src="script/jquery-3.5.1.min.js"></script>
+    <script src="script/script.js"></script>
+</body>
+</html>

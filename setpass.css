@@ -1,0 +1,56 @@
+body {
+    width: 100%;
+}
+
+.setpassword{
+    display: none;
+    width: 1050px !important;
+    height: 550px;
+    overflow: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow:  0 0 5px var(--blue);
+    /* padding: 20px; */
+    box-sizing: border-box;
+}
+
+#setpassbtns {
+    display: block;
+    margin-top: 40px;
+    margin-left: 50px;
+}
+
+#setpassbtns button:active {
+    border-color: var(--sienna);
+}
+
+.setpassword button {
+    width: 225px;
+    align-self: center;
+    padding: 5px 10px;
+    margin-bottom: 10px;
+    outline: none;
+    border: 2px solid var(--gunmetal);
+    border-radius:4px ;
+    box-shadow: 0 0 5px var(--gunmetal);
+    background: var(--blue);
+    color: #fff;
+    font-size: 17px;
+    word-spacing: 2px;
+    margin: 0 20px;
+}
+
+.setpassword button:active {
+    box-shadow: 0 0 0 black;
+}
+
+
+.setApass,.setKpass {
+    height: 340px;
+    top: 27%;
+    left: 25.5%;
+}
+
+.setKpass {
+    left: 45.5%;
+}
