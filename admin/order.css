@@ -1,0 +1,105 @@
+:root {
+
+    --blue: #3d5a80ff;
+    --cerulean: #98c1d9ff;
+    --cyan: #e0fbfcff;
+    --sienna: #ee6c4dff;
+    --gunmetal: #293241ff;
+}
+
+body {
+    width: 100%;
+}
+
+.orders{
+    display: unset;
+    width: 1050px !important;
+    height: 550px;
+    overflow: auto;
+    margin-top: 10px;
+    border-radius: 10px;
+    box-shadow:  0 0 5px var(--blue);
+    /* padding: 20px; */
+    box-sizing: border-box;
+}
+
+.orders .activeorders {
+    width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+.activeorders .orderbox {
+    width: 320px;
+    height: 300px;
+    overflow: auto;
+    border: 2px solid var(--gunmetal);
+    border-radius: 7px;
+    margin: 10px;
+    /* padding: 10px; */
+    box-sizing: border-box;
+}
+
+.orderbox>span{
+    /* width: 0%; */
+    margin: 7px 0;
+    padding-bottom: 3px;
+    margin-bottom: 5px;
+    border-bottom: 2px solid var(--blue);
+    box-sizing: border-box;
+}
+
+.orderbox>span>h4 {
+    padding-left: 10px;
+}
+
+.orderbox>span:not(:last-child) {
+    display: flex;
+    justify-content: space-between;
+    width: 100%;
+}
+
+.orderbox>span:first-child {
+    background: var(--blue);
+    color: whitesmoke;
+    padding: 10px 5px;
+    box-sizing: border-box;
+    margin-top: 0;
+}
+
+
+.orderbox>span>p {
+    width: 50%;
+    justify-self: center;
+}
+.orderbox>span>span {
+    display: flex;
+    width: 100%;
+    justify-content: space-between;
+    box-sizing: border-box;
+    padding-left: 20px;
+    margin-top: 3px;
+}
+
+.orderbox>span>span>h6 {
+    font-size: 15px;
+}
+.orderbox>span>span>p {
+    width: 48%;
+    margin-right: 15px;
+}
+
+.payment,.paymentsuccess {
+    width: 170px !important;
+    height: 35px;
+    background: red;
+    border-radius: 5px;
+    margin-left: 20px;
+    margin-top: 20px !important;
+    line-height: 2;
+    font-size: 16px;
+}
+
+.paymentsuccess{
+    background: green;
+}

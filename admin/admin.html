@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="admin.css" type="text/css">
     <link rel="stylesheet" href="items.css" type="text/css">
     <link rel="stylesheet" href="setpass.css" type="text/css">
+    <link rel="stylesheet" href="order.css" type="text/css">
     <!-- <link rel="stylesheet" href="../style/login_success.css" type="text/css"> -->
     <link rel="stylesheet" href="" type="text/css">
 </head>
@@ -29,12 +30,7 @@
                         <button type="submit" id="openItems" >Items</button>
                     </span>
                 </li>
-                <li>
-                    <span class="icon"></span>
-                    <span class="title">
-                        <button type="submit" id="openTables" >Tables</button>
-                    </span>
-                </li>
+
                 <li>
                     <span class="icon"></span>
                     <span class="title">
@@ -45,8 +41,154 @@
         </aside>
 
 
+        <!-- Orders -->
+        <section class="side orders">
+            <h2>Current Active Orders</h2>
+            <div class="activeorders">
+                <section class="orderbox ">
+                    <span>
+                        <h4>Order ID :</h4>
+                        <p>243284293478</p>
+                    </span>
+                    <span>
+                        <h4>Table Number :</h4>
+                        <p>2</p>
+                    </span>
+                    <span>
+                        <h4>Order Price :</h4>
+                        <p>1500.0 Rs.</p>
+                    </span>
+                    <span>
+                        <h4>Items :</h4>
+                            <span>
+                                <h5>Khaman</h5>
+                                <p>2 plates</p>
+                            </span>
+                            <span>
+                                <h5>Chapati</h5>
+                                <p>12</p>
+                            </span>
+                            <span>
+                                <h5>Rotala</h5>
+                                <p>3</p>
+                            </span>
+                            <span>
+                                <h5>Khichadi</h5>
+                                <p>2 plates</p>
+                            </span>
+                            <span class="paymentsuccess">Payment Success</span>
+                        </span>
+                </section>
+
+                <section class="orderbox">
+                    <span>
+                        <h4>Order ID :</h4>
+                        <p>243284293478</p>
+                    </span>
+                    <span>
+                        <h4>Table Number :</h4>
+                        <p>2</p>
+                    </span>
+                    <span>
+                        <h4>Order Price :</h4>
+                        <p>1500.0 Rs.</p>
+                    </span>
+                    <span>
+                        <h4>Items :</h4>
+                            <span>
+                                <h5>Khaman</h5>
+                                <p>2 plates</p>
+                            </span>
+                            <span>
+                                <h5>Chapati</h5>
+                                <p>12</p>
+                            </span>
+                            <span>
+                                <h5>Rotala</h5>
+                                <p>3</p>
+                            </span>
+                            <span>
+                                <h5>Khichadi</h5>
+                                <p>2 plates</p>
+                            </span>
+                            <span class="paymentsuccess">Payment Success</span>
+                        </span>
+                </section>
+                <section class="orderbox">
+                    <span>
+                        <h4>Order ID :</h4>
+                        <p>243284293478</p>
+                    </span>
+                    <span>
+                        <h4>Table Number :</h4>
+                        <p>2</p>
+                    </span>
+                    <span>
+                        <h4>Order Price :</h4>
+                        <p>1500.0 Rs.</p>
+                    </span>
+                    <span>
+                        <h4>Items :</h4>
+                            <span>
+                                <h5>Khaman</h5>
+                                <p>2 plates</p>
+                            </span>
+                            <span>
+                                <h5>Chapati</h5>
+                                <p>12</p>
+                            </span>
+                            <span>
+                                <h5>Rotala</h5>
+                                <p>3</p>
+                            </span>
+                            <span>
+                                <h5>Khichadi</h5>
+                                <p>2 plates</p>
+                            </span>
+                            <span class="payment">Payment Pending</span>
+                        </span>
+                </section>
+                <section class="orderbox">
+                    <span>
+                        <h4>Order ID :</h4>
+                        <p>243284293478</p>
+                    </span>
+                    <span>
+                        <h4>Table Number :</h4>
+                        <p>2</p>
+                    </span>
+                    <span>
+                        <h4>Order Price :</h4>
+                        <p>1500.0 Rs.</p>
+                    </span>
+                    <span>
+                        <h4>Items :</h4>
+                            <span>
+                                <h5>Khaman</h5>
+                                <p>2 plates</p>
+                            </span>
+                            <span>
+                                <h5>Chapati</h5>
+                                <p>12</p>
+                            </span>
+                            <span>
+                                <h5>Rotala</h5>
+                                <p>3</p>
+                            </span>
+                            <span>
+                                <h5>Khichadi</h5>
+                                <p>2 plates</p>
+                            </span>
+                            <span class="payment">Payment Pending</span>
+                        </span>
+                </section>
+                
+            </div>
+        </section>
+
         <!-- set password -->
-        <section class="setpassword">
+        <section class="side setpassword">
+            <h2>Set Passwords</h2>
             <span id="setpassbtns">
                 <button type="submit" id="setapassbtn">Set Admin Password</button>
                 <button type="submit" id="setkpassbtn">Set Kitchen Password</button>
@@ -98,13 +240,8 @@
 
         </section>
 
-        <!-- Orders -->
-
-        <!-- <section class="orders"></section> -->
-
         <!-- item -->
-
-        <section class="items">
+        <section class="side items">
             <h2>Restaurant name</h2>
             <div class="list">  
                 <div class="add">
@@ -126,6 +263,7 @@
             </div>
             <section class="cats">
                 <ul class="allcats">
+                    <h3>Categories</h3>
                     <li>
                         <h3 class="opencat" onclick="opencat('cat1')">Gujrati</h3>
                         <ul class="tcat cat1">

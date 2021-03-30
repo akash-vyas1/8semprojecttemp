@@ -46,6 +46,7 @@ body {
 .all>aside {
     min-width: 250px;
     border: 2px solid var(--gunmetal);
+    border-bottom: none;
     background: rgba(61, 90, 128,0.5);
     padding-left: 0px;
     box-sizing: border-box;
@@ -128,4 +129,6 @@ footer {
     padding: 0 15px;
     box-sizing: border-box;
     z-index: 1;
+    /* border-top: 2px solid var(--gunmetal); */
 }
+

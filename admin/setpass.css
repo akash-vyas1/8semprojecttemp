@@ -3,20 +3,20 @@ body {
 }
 
 .setpassword{
-    display: unset;
+    display: none;
     width: 1050px !important;
     height: 550px;
     overflow: auto;
     margin-top: 10px;
     border-radius: 10px;
     box-shadow:  0 0 5px var(--blue);
-    padding: 20px;
+    /* padding: 20px; */
     box-sizing: border-box;
 }
 
 #setpassbtns {
     display: block;
-    margin-top: 20px;
+    margin-top: 40px;
     margin-left: 50px;
 }
 
@@ -47,10 +47,10 @@ body {
 
 .setApass,.setKpass {
     height: 340px;
-    top: 22%;
-    left: 30%;
+    top: 27%;
+    left: 25.5%;
 }
 
 .setKpass {
-    left: 40%;
+    left: 45.5%;
 }

@@ -63,20 +63,33 @@ body{
 .items .cats  .allcats{
     width: 300px;
     height: 300px;
-    padding: 10px;
+    /* padding: 10px; */
     border: 2px solid var(--gunmetal);
     margin: 10px 0 0 10px;
     box-shadow: 0 0 7px var(--gunmetal);
     border-radius: 7px;
     background: rgb(227, 231, 236);
     overflow: auto;
-} 
+    /* overflow-x: hidden; */
+}
+
+.allcats>h3 {
+    /* width: 100%; */
+    background: var(--gunmetal);
+    padding: 10px;
+    color: whitesmoke;
+    text-align: center;
+    position: relative;
+    z-index: 1;
+    margin-bottom: 10px;
+}
 
 .items .cats ul li {
     width: 250px;
     list-style: none;
     font-size: 17px;
     margin-bottom: 15px;
+    padding-left: 12px;
 }
 
 .items .cats ul li h3{
@@ -87,7 +100,7 @@ body{
 
 .items .cats ul li ul  {
     list-style: none;
-    margin-left: 10px;
+    margin-left: 0px;
     font-weight: 500;
 }
 
@@ -302,3 +315,14 @@ body{
     width: max-content;
     margin-left: 30px;
 }
+
+.addcat {
+    top: 25%;
+    left: 50%;
+}
+
+.additem {
+    left: 50%;
+    top: 14%;
+}
+

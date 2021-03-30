@@ -1,23 +1,31 @@
 $(document).ready(function () {
     
+    //Openorders
+    $('#openOrders').click(function () {
+        $('.side').css("display","none");
+        $('.orders').css("display","unset");
+    });
+
     //OpenItems
     $('#openItems').click(function () {
+        $('.side').css("display","none");
         $('.items,.cats').css("display","unset");
-        $('.setpassword').css("display","none");
     });
     
+    //opensetpassword
     $('#openSetpass').click(function () {
+        $('.side').css("display","none");
         $('.setpassword').css("display","unset");
-        $('.items').css("display","none");
     });
+
     //add item
     $('#addItem').click(function (){
         $('.additem').css("display","unset");
-        $('.list,.cats').css("opacity","0.4");
+        $('.list,.cats,.allcats').css("opacity","0.4");
         document.getElementById('addCat').disabled = true;
     });
     $('#addItemCancel').click(function(){
-        $('.list,.cats').css("opacity","1");
+        $('.list,.cats,.allcats').css("opacity","1");
         $('.additem').css("display","none");
         document.getElementById('addCat').disabled = false;
     });
@@ -29,11 +37,11 @@ $(document).ready(function () {
     
     $('#addCat').click(function (){
         $('.addcat').css("display","unset");
-        $('.list,.cats').css("opacity","0.4");
+        $('.list,.cats,.allcats').css("opacity","0.4");
         document.getElementById('addItem').disabled = true;
     });
     $('#addCatCancel').click(function(){
-        $('.list,.cats').css("opacity","1");
+        $('.list,.cats,.allcats').css("opacity","1");
         $('.addcat').css("display","none");
         document.getElementById('addItem').disabled = false;
     });
