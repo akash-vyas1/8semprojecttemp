@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .style {
+            background: green;
+            color: whitesmoke;
+            padding: 10px;
+        }
+    </style>
+</head>
+<body>
+
+
+    <div id="main">
+    </div>
+    <form >
+        Enter heading size : <input id="e" type="text"><br><br>
+        Enter heading text : <input id="text" type="text"><br><br>
+        <input type="button" value="Submit" onclick="getHeading()"></input>
+    </form>
+
+<script>
+
+
+    function getHeading () {
+        var eval = document.getElementById("e").value;
+        var tval = document.getElementById("text").value;
+        console.log(eval+":"+tval);
+        var element = document.createElement(eval);
+        element.classList.add('style');
+        var text = document.createTextNode(tval);
+        element.appendChild(text);
+        var main = document.getElementById("main");
+        main.appendChild(element);
+    }
+
+    // var h2 = document.createElement("h2");
+    // h2.classList.add('style');
+    // h2.setAttribute("id","headline");
+    // var text = document.createTextNode("Form");
+    // h2.appendChild(text);
+    // var main = document.getElementById("main");
+    // main.appendChild(h2);
+</script>
+</body>
+</html>

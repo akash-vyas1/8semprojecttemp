@@ -55,6 +55,10 @@ body{
     color: var(--gunmetal);
 }
 
+button {
+    cursor: pointer;
+}
+
 
 .items .list button:active {
     box-shadow:  0 0 0 black;
@@ -62,10 +66,10 @@ body{
 
 .items .cats  .allcats{
     width: 300px;
-    height: 300px;
+    height: 375px;
     /* padding: 10px; */
     border: 2px solid var(--gunmetal);
-    margin: 10px 0 0 10px;
+    margin: 17px 0 0 17px;
     box-shadow: 0 0 7px var(--gunmetal);
     border-radius: 7px;
     background: rgb(227, 231, 236);
@@ -260,18 +264,20 @@ body{
 
 /* showitem */
 .showitem{
-    width: 300px;
-    height: 325px;
+    width: 290px;
+    min-height: max-content;
     position: absolute;
     top: 25%;
     left: 50%;
     border: 2px solid var(--gunmetal);
     padding: 10px;
+    padding-left: 30px;
     overflow: auto;
     border-radius: 7px;
     background: rgb(234, 238, 243);
     display: none;
     transition: 0.5s all ease-in-out;
+    z-index: 10;
 }
 .showitem span {
     display: block;
@@ -295,7 +301,7 @@ body{
 .showitem button {
     width: 100px;
     height: 30px;
-    margin-top: 20px;
+    margin: 20px 0 15px 0;
     background: var(--blue);
     outline: none;
     border: 2px solid var(--blue);
@@ -306,12 +312,17 @@ body{
     box-shadow: 0 0 5px var(--gunmetal);
 }
 
+.showitem .ides>p {
+    height: 70px;
+    overflow: auto;
+}
+
 .showitem button:active{
     box-shadow: 0 0 0px var(--gunmetal);
     border: 2px solid var(--sienna);
 }
 
-#edititembtn {
+.edititembtn {
     width: max-content;
     margin-left: 30px;
 }
@@ -319,10 +330,15 @@ body{
 .addcat {
     top: 25%;
     left: 50%;
+    height: 220px;
+}
+.addcat .btns {
+    margin-top: 20px;
 }
 
 .additem {
-    left: 50%;
-    top: 14%;
+    left: 51%;
+    top: 11%;
+    height: 480px;
 }
 

@@ -30,7 +30,28 @@ $(document).ready(function () {
         document.getElementById('addCat').disabled = false;
     });
     $('#addItemBtn').click(function(){
-        document.getElementById('addCat').disabled = false;
+        var itemName = $('#itemname').val();
+        var itemPrice = $('#item_price').val();
+        var itemCat = $('#item_cat_i').val();
+        if(itemName!== "") {
+            if(itemPrice !== ""){
+                if(itemCat!== ""){
+                    console.log("add item is being called.");
+                    var added = addItem();
+                }else {
+                    alert("Item category name required.");
+                }
+            }else {
+                alert("Item price required.");
+            }
+        }else {
+            alert("Item name required.");
+        }
+        if(added) {
+            document.getElementById('addCat').disabled = false;
+            $('.additem').css("display","none");
+            $('.list,.cats,.allcats').css("opacity","1");
+        }
     });
 
     //add category
@@ -46,7 +67,13 @@ $(document).ready(function () {
         document.getElementById('addItem').disabled = false;
     });
     $('#addCatBtn').click(function(){
-        document.getElementById('addItem').disabled = false;
+        // alert("category is added successfully.");
+        var added = addCategory(null);
+        if(added) {
+            document.getElementById('addItem').disabled = false;
+            $('.addcat').css("display","none");
+            $('.list,.cats,.allcats').css("opacity","1");
+        }
     });
 
 
@@ -69,6 +96,7 @@ $(document).ready(function () {
         document.getElementById('setapassbtn').disabled = false;
     });
 
+
 });
 
 
@@ -81,26 +109,54 @@ function opencat(c){
     //console.log($(cat).hasClass('display'));
 }
 
-//creating category
-var category = {cname:"",cdes:""};
-category.cname= "akash vyas";
-category.cdes = "akash vyas description";
-
-function addCategory(name, des) {
-    var cat = new Object();
-    cat.cname = name;
-    cat.cdes=des;
-}
-
 //show item
-function showItem() {
-    $('.showitem').css("display","unset");
-    $('.list,.cats').css("opacity","0.45");
+// var openItemDetail =false;
+function showItem(id) {
+    // if(openItemDetail==false) {
+        $('.showitem').css("display","none");
+        $("#"+id).css("display","unset");
+        $('.list,.cats').css("opacity","0.45");
+        // openItemDetail=true;
+    // }else {
+    //     $("#"+id).css("display","none");
+    //     $('.list,.cats').css("opacity","1");
+    //     openItemDetail=false;
+    // }
 }
-function closeItem(){
-    $('.showitem').css("display","none");
+function closeItem(id){
+    $("#"+id).css("display","none");
     $('.list,.cats').css("opacity","1");
+    // openItemDetail=false;
 }
+
+function editItem(name) {
+    var btn = document.getElementById(name+"edit");
+    // var cat = document.getElementById(name+"cat");
+    // cat.setAttribute("contenteditable","true");
+    var des = document.getElementById(name+"des");
+    des.setAttribute("contenteditable","true");
+    var price = document.getElementById(name+"price");
+    price.setAttribute("contenteditable","true");
+    var iname = document.getElementById(name+"name");
+    iname.setAttribute("contenteditable","true");
+    btn.innerText="Save changes"
+    btn.onclick = function(){
+        var saved = saveChanges(name);
+        if(saved) {
+            alert("Item details saved successfully.");
+            price.setAttribute("contenteditable","false");
+            iname.setAttribute("contenteditable","false");
+            des.setAttribute("contenteditable","false");
+            btn.innerText="Edit details";
+            closeItem(name);
+        }else {
+            alert("No item with this name available");
+        }
+    }    
+}
+
+
+//Generate Id for category 
 
 
 

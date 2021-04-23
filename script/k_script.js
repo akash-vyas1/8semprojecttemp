@@ -71,8 +71,6 @@ $(document).ready(function(){
         if(ans!=true) e.preventDefault(); 
         // else e.canplay();
     });
-    
-
 });
 
 

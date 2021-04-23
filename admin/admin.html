@@ -245,18 +245,18 @@
             <h2>Restaurant name</h2>
             <div class="list">  
                 <div class="add">
-                    <button type="submit" id="addCat" >
+                    <button type="button" id="addCat" >
                         Add Category
                     </button>
-                    <button type="submit" id="addItem">
+                    <button type="button" id="addItem">
                         Add Item
                     </button>
                 </div>
                 <div class="remove">
-                    <button type="submit" id="deleteCat" >
+                    <button type="button" id="deleteCat" >
                         Delete Category
                     </button>
-                    <button type="submit" id="deleteItem">
+                    <button type="button" id="deleteItem">
                         Delete Item
                     </button>
                 </div>
@@ -264,6 +264,7 @@
             <section class="cats">
                 <ul class="allcats">
                     <h3>Categories</h3>
+                    <!-- 
                     <li>
                         <h3 class="opencat" onclick="opencat('cat1')">Gujrati</h3>
                         <ul class="tcat cat1">
@@ -282,60 +283,65 @@
                             <li><button>Paratha</button></li>                            
                             <li><button>Nan</button></li>                            
                         </ul>
-                    </li>
+                    </li> -->
                 </ul>
             </section>
         
             <div class="additem in">
                 <h2>Add Item</h2>
-                    <form action="">
+                    <form action="#">
                         <span class="input additm">
                             <label for="itemname" id="itemname_label">Item Name  </label>
-                            <input type="text" name="" id="itemname" required >
-                        </span><br>
+                            <input type="text" name="iname" id="itemname" required >
+                        </span><br><br>
                         <span class="input additmprice">
                             <label for="item_price" id="item_price_label">Item Price  </label>
-                            <input type="number" name="" id="item_price" required>
+                            <input type="number" name="iprice" id="item_price" required>
                         </span><br>
                         <span class="input additmcat">
                             <label for="item_cat" id="item_cat_label">Category  </label>
-                            <input type="text" name="" id="item_cat" >
+                            <input type="text" name="icat" id="item_cat_i" required >
                         </span><br>
                         <span class="input additmdes">
                             <label for="description" id="item_cat_label">Description   </label>
-                            <textarea name="" id="description" cols="30" rows="5" placeholder="Optional"></textarea>
+                            <textarea name="ides" id="description_i" cols="30" rows="5" placeholder="Optional"></textarea>
                         </span><br>
                         <span class="btns">
-                            <button type="submit" id="addItemBtn">Submit</button>
+                            <button type="button" id="addItemBtn">Add Item</button>
                             <button type="submit" id="addItemCancel">Cancel</button>
                         </span>
                     </form>
             </div>
+
             <div class="addcat in">
                 <h2>Add Item</h2>
                     <form action="#">
                         <span class="input addct">
                             <label for="item_cat" id="item_cat_label">Category  </label>
-                            <input type="text" name="" id="item_cat" required>
+                            <input type="text" name="cname" id="item_cat_c" required>
                         </span><br>
-                        <span class="input additm">
+                        <!-- <span class="input additm">
                             <label for="description" id="item_cat_label">Description   </label>
-                            <textarea name="" id="description" cols="30" rows="5" placeholder="Optional"></textarea>
-                        </span><br>
+                            <textarea name="" id="description_c" cols="30" rows="5" placeholder="Optional"></textarea>
+                        </span><br> -->
                         <span class="btns">
-                            <button type="submit" id="addCatBtn" onclick="addCategory()">Submit</button>
+                            <button type="submit" id="addCatBtn" >Add</button>
                             <button type="submit" id="addCatCancel">Cancel</button>
                         </span>
                     </form>
                 </div>
 
-                <div class="showitem">
+                <section id="show" >
+
+                </section>
+
+                <!-- <div class="showitem">
                     <span class="data iname">
                         <h5>Item Name</h5>
                         <p>Khaman</p>
                     </span>
                     <span class="data iprice">
-                        <h5>Item Price(Kg)</h5>
+                        <h5>Item Price</h5>
                         <p>100</p>
                     </span>
                     <span class="data icat">
@@ -347,10 +353,10 @@
                         <p>Khaman is a famous gujrati dish</p>
                     </span>
                     <button type="submit" onclick="closeItem()" >Close</button>
-                    <button type="submit" id="edititembtn" onclick="editItem()" >Edit Details</button>
-                </div>
+                    <button type="submit" class="edititembtn" onclick="editItem()" >Edit Details</button>
+                </div> -->
 
-        </section>
+        </section >
 
     </div>
     <footer>
@@ -358,5 +364,6 @@
     </footer>
     <script src="../script/jquery-3.5.1.min.js"></script>
     <script src="admin.js"></script>
+    <script src="item.js"></script>
 </body>
 </html>

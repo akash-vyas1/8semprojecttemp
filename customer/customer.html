@@ -8,6 +8,97 @@
     <link rel="stylesheet" href="customer.css" type="text/css">
 </head>
 <body>
-    
+        <aside class="allcats">
+
+            <h1 class="orderitems" >Order Items</h1>
+
+            <h1>Categories</h1>
+            <ul class="cats">
+                <li class="cat">
+                    <h3 id="guj" onclick="showItems('guj')">Gujrati</h3>
+                    <!-- <ul>
+                        <li class="item">Khaman</li>
+                        <li class="item">Khaman</li>
+                        <li class="item">Khaman</li>
+                        <li class="item">Khaman</li>
+                    </ul> -->
+                </li>
+                <li class="cat">
+                    <h3 onclick="showItems('gujrati')" >Punjabi</h3>
+                    <!-- <ul>
+                        <li class="item">Khaman</li>
+                        <li class="item">Khaman</li>
+                        <li class="item">Khaman</li>
+                        <li class="item">Khaman</li>
+                    </ul> -->
+                </li>
+                <li class="cat">
+                    <h3 onclick="showItems('gujrati')">South Indian</h3>
+                    <!-- <ul>
+                        <li class="item">Khaman</li>
+                        <li class="item">Khaman</li>
+                        <li class="item">Khaman</li>
+                        <li class="item">Khaman</li>
+                    </ul> -->
+                </li>
+            </ul>
+            
+        </aside>
+        <section class="main">
+            <h1>Items</h1>
+            <div class="items">
+                <section class="item">
+                        <h3 class="itemname">
+                            Khaman
+                            <button onclick="addItemToOrder('Khaman')" type="submit">ADD</button>
+                        </h3>
+
+                    <span>
+                        <h3>Item Price : </h3>
+                        <h4>100.0 &nbsp; Rs.</h4>
+                    </span>
+                    <span class="itemnums">
+                        <h3>Select Quantity : </h3>
+                        <div>
+                            <button class="itembtn itembtnsub" onclick="doDecrement('Khaman')" type="button">-</button>
+                            <input class="totalitems" id="Khaman" type="number" min="0" max="50" placeholder="upto 50" required>
+                            <button type="button" class="itembtn itembtnplus" onclick="doIncrement('Khaman')" >+</button>
+                        </div>
+                    </span>
+                    <span class="des">
+                        <h3>Aditional Details : </h3>
+                        <h4>Rotala is a famous gujrati dish</h4>
+                    </span>
+                </section>
+                <section class="item">
+                    <h3 class="itemname">
+                        Chapati
+                        <button onclick="addItemToOrder('Chapati')" type="submit">ADD</button>
+                    </h3>
+
+                <span>
+                    <h3>Item Price : </h3>
+                    <h4>100.0 &nbsp; Rs.</h4>
+                </span>
+                <span class="itemnums">
+                    <h3>Select Quantity : </h3>
+                    <div>
+                        <button class="itembtn itembtnsub" onclick="doDecrement('Chapati')" type="button">-</button>
+                        <input class="totalitems" id="Chapati" type="number" min="0" max="50" placeholder="upto 50" required>
+                        <button type="button" class="itembtn itembtnplus" onclick="doIncrement('Chapati')" >+</button>
+                    </div>
+                </span>
+                <span class="des">
+                    <h3>Aditional Details : </h3>
+                    <h4>Chapati is a famous gujrati dish</h4>
+                </span>
+            </section>
+                
+            </div>
+
+        </section>
+
+        <script src="../script/jquery-3.5.1.min.js"></script>
+        <script src="customer.js"></script>
 </body>
 </html>

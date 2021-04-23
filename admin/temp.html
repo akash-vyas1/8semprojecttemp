@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+
+    <form action="#">
+        <span class="input addct">
+            <label for="item_cat" id="item_cat_label">Category  </label>
+            <input type="text" name="" id="item_cat" required>
+        </span><br>
+        <span class="input additm">
+            <label for="description" id="item_cat_label">Description   </label>
+            <textarea name="" id="description" cols="30" rows="5" placeholder="Optional"></textarea>
+        </span><br>
+        <span class="btns">
+            <button type="submit" id="addCatBtn" onclick="catValues()">Submit</button>
+            <button type="submit" id="addCatCancel">Cancel</button>
+        </span>
+    </form>
+
+    <section class="cats">
+        <ul class="allcats">
+            <h3>Categories</h3>
+        </ul>
+    </section> 
+
+    <script src="../script/jquery-3.5.1.min.js"></script>
+    <script src="temp.js"></script>
+</body>
+</html>
