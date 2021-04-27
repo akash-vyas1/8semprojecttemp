@@ -37,6 +37,20 @@ function warningAlert(ttext){
     });
 }
 
+function warningAlertWithTitle(ttitle,ttext){
+    Swal.fire({
+        title:ttitle,
+        text: ttext,
+        icon:"warning",
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
+    });
+}
+
 $(document).ready(function () {
     
     //Openorders
@@ -77,6 +91,10 @@ $(document).ready(function () {
                 if(itemCat!== ""){
                     // console.log("add item is being called.");
                     var added = addItem();
+                    if(added) {
+                        var check = document.getElementById('cat_eq_item');
+                        check.checked=false;
+                    }
                 }else {
                     // alert("Item category name required.");
                     warningAlert("Item category name required.");
@@ -110,7 +128,7 @@ $(document).ready(function () {
     });
     $('#addCatBtn').click(function(){
         // alert("category is added successfully.");
-        var added = addCategory(null);
+        var added = addCategory();
         if(added) {
             document.getElementById('addItem').disabled = false;
             $('.addcat').css("display","none");

@@ -1,3 +1,17 @@
+
+function successAlert(ttext){
+    Swal.fire({
+        text: ttext,
+        icon:"success",
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
+    });
+}
+
 $(document).ready(function(){
     $(".orderitems").click(function(){
         $(".main").css("display","none");
@@ -243,6 +257,7 @@ function saveChanges(){
         }else if(isFinite(quantity) && Number(quantity)<=50 && Number(quantity)>0 ) {
             orderItems[i].quantity=Number(quantity);
             orderItems[i].sum = orderItems[i].quantity*orderItems[i].price;
+            successAlert("Order updated successfully.");
         }
         // else if(isFinite(quantity) && Number(quantity)==0){
         //     orderItems[i] = null;
@@ -491,7 +506,7 @@ function getPlaceOrderButton(oid){
     var btn = document.createElement("button");
     btn.setAttribute("id",oid+"place");
     btn.setAttribute("class","placeorder");
-    btn.setAttribute("type","submit");
+    btn.setAttribute("type","button");
     var text = document.createTextNode("Place Order");
     btn.appendChild(text);
     return btn;

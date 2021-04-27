@@ -29,7 +29,7 @@ function getItemHeading(name){
 function getItemAddBtn(name){
     var btn = document.createElement("button");
     btn.setAttribute("onclick","addItemToOrder('"+name+"')");
-    btn.setAttribute("type","submit");
+    btn.setAttribute("type","button");
     var text = document.createTextNode("ADD");
     btn.appendChild(text);
     return btn;

@@ -3,6 +3,15 @@ var items = [];
 var showItems = [];
 // var categories2 = ["Gujrati","Pubjabi"];
 
+function isItemPresent(name){
+    for(var i=0;i<items.length;i++) {
+        if(items[i].name==name) {
+            return true;
+        }
+    }
+    return false;
+}
+
 function showAll(){
     console.log("categories : ");
     console.log(categories);
@@ -22,29 +31,84 @@ function addItem(){
     var itemPrice = $('#item_price').val();
     var itemCat = $('#item_cat_i').val();
     var itemDes = $('#description_i').val();
-    itemName = itemName.replace(" ","_");
-    itemCat = itemCat.replace(" ","_");
-    if(itemName===itemCat) {
-        // alert("Item name and category must be different.");
-        warningAlert("Item name and category must be different.");
-        iC.val("");
+    itemName = itemName.replace(" ","_").trim();
+    itemCat = itemCat.replace(" ","_").trim();
+    if($('#cat_eq_item').is(':checked')) {
+        // alert("Checkbox is checked !");
+        // console.log("Checkbox is checked !");
+        var catExist = isCatExist(itemCat.toLowerCase());
+        var itemExist = isItemPresent(itemName);
+        if(catExist) {
+            errorAlert("Category already exist.Please try with different one.");
+        }else if(itemExist) {
+            errorAlert(itemName+" already exist.Please try with different one.");
+        }else {
+            // alert("success.");
+            if(itemName===itemCat) {
+                var symbolPresent = isSymbolPresent(itemName,"itemname");
+                if(!symbolPresent) {
+                    createNewCategoryEq(itemCat);
+                    iN.val("");
+                    iP.val("");
+                    iC.val("");
+                    iD.val("");
+                    var item = new Object();
+                    item.name = itemName;
+                    item.price = itemPrice;
+                    item.cat = itemCat;
+                    item.des = itemDes;
+                    items.push(item);
+                    createShowItem(item);
+                    successAlert(itemName.replace("_"," ")+", added successfully as "+itemCat.replace("_"," ")+" category.");
+                    return true;
+                }else{
+                    warningAlertWithTitle("SYMBOLS"," must be avoided.");
+                }
+            }else {
+                warningAlert("Item name and category name must be same. Because you check that option.");
+                iC.val(itemName);
+            }
+        }
     }else {
-        addItemToCategory(itemName,itemCat);
-        iN.val("");
-        iP.val("");
-        iC.val("");
-        iD.val("");
-        // alert(itemName.replace("_"," ")+", added successfully to "+itemCat.replace("_"," ")+", category.");
-        successAlert(itemName.replace("_"," ")+", added successfully to "+itemCat.replace("_"," ")+", category.");
-        var item = new Object();
-        item.name = itemName;
-        item.price = itemPrice;
-        item.cat = itemCat;
-        item.des = itemDes;
-        items.push(item);
-        createShowItem(item);
-        // console.log(items);
-        return true;
+        if(itemName===itemCat) {
+            // alert("Item name and category must be different.");
+            warningAlert("Item name and category must be different.");
+            iC.val("");
+        }else {
+            var itemPresent = isItemPresent(itemName);
+            if(!itemPresent) {
+                if(!isSymbolPresent(itemName,"itemname")) {
+                    if(addItemToCategory(itemName,itemCat)){
+                        iN.val("");
+                        iP.val("");
+                        iC.val("");
+                        iD.val("");
+                        // alert(itemName.replace("_"," ")+", added successfully to "+itemCat.replace("_"," ")+", category.");
+                        successAlert(itemName.replace("_"," ")+", added successfully to "+itemCat.replace("_"," ")+", category.");
+                        var item = new Object();
+                        item.name = itemName;
+                        item.price = itemPrice;
+                        item.cat = itemCat;
+                        item.des = itemDes;
+                        items.push(item);
+                        createShowItem(item);
+                        // console.log(items);
+                        return true;
+                    }else {
+                        iC.val(itemCat.replace(".",""));
+                        iC.val(itemCat.replace(",",""));
+                        iC.val(itemCat.replace("#",""));
+                        warningAlertWithTitle("'.' or ',' or '#'"," are must be avoided.");
+                    }
+                }else {
+                    warningAlertWithTitle("SYMBOLS"," must be avoided.");
+                }
+            }else{
+                var item = getItem(itemName);
+                errorAlert(itemName+" is already exist in "+item.cat+" category."+"\n"+" So please add item with different name.");
+                return false;
+            }
+        }
     }
 }
 
@@ -123,10 +187,15 @@ function addItemToCategory(name,cat) {
         return true;
     }
     else {
-        createNewCategory(cat);
-        var li = createItemLi(name);
-        document.getElementById(cat.toLowerCase()).appendChild(li);
-        return true;
+        if(cat.includes(".") || cat.includes(",") || cat.includes("#")){
+            // alert(". , #");
+            return false;
+        }else {
+            createNewCategory(cat);
+            var li = createItemLi(name);
+            document.getElementById(cat.toLowerCase()).appendChild(li);
+            return true;
+        }
     }
 }
 
@@ -224,38 +293,123 @@ function getNameSpan(name){
     return span;
 }
 
-
+function isSymbolPresent(catName,id){
+    // var cn = $('#item_cat_c');
+    var cn = $('#'+id);
+    if(catName.includes(".")){
+        cn.val(catName.replace(".",""));
+        return true;
+    }else if(catName.includes(",") ){
+        cn.val(catName.replace(",",""));
+        return true;
+    }else if(catName.includes("#")){
+        cn.val(catName.replace("#",""));
+        return true;
+    }else if(catName.includes("$") ){
+        cn.val(catName.replace("$",""));
+        return true;
+    }else if(catName.includes("!") ){
+        cn.val(catName.replace("!",""));
+        return true;
+    }else if(catName.includes("~") ){
+        cn.val(catName.replace("~",""));
+        return true;
+    }else if(catName.includes("`") ){
+        cn.val(catName.replace("`",""));
+        return true;
+    }else if(catName.includes("%") ){
+        cn.val(catName.replace("%",""));
+        return true;
+    }else if(catName.includes("^") ){
+        cn.val(catName.replace("^",""));
+        return true;
+    }else if(catName.includes("&") ){
+        cn.val(catName.replace("&",""));
+        return true;
+    }else if(catName.includes("*") ){
+        cn.val(catName.replace("*",""));
+        return true;
+    }else if(catName.includes("-") ){
+        cn.val(catName.replace("-",""));
+        return true;
+    }else if(catName.includes("+") ){
+        cn.val(catName.replace("+",""));
+        return true;
+    }else if(catName.includes("/") ){
+        cn.val(catName.replace("/",""));
+        return true;
+    }else if(catName.includes("\\") ){
+        cn.val(catName.replace("\\",""));
+        return true;
+    }else if(catName.includes(";") ){
+        cn.val(catName.replace(";",""));
+        return true;
+    }else {
+        return false;
+    }
+    
+}
 
 //FOR CATEGORIES
 function addCategory(){
         var cn = $('#item_cat_c');
-        catName = $('#item_cat_c').val();
+        var catName = $('#item_cat_c').val();
         var cats_allcats = $('.cats>.allcats');
-        catName = catName.replace(" ","_");
-    
-        if(catName!== undefined && catName!==null && catName!== "") {
-            if(!isCatExist(catName.toLowerCase())) {
-                var li = document.createElement("li");
-                var headline = getCatHeading(catName);
-                catName = catName.toLowerCase();
-                categories.push(catName);
-                li.appendChild(headline);
-                var ul = createUl(catName);
-                li.appendChild(ul);
-                // li.appendChild(createUl);
-                cats_allcats.append(li);
-                // alert(catName.replace("_"," ")+", category added successfully.");
-                successAlert("category "+catName.replace("_"," ")+" added successfully.");
-                // console.log(categories);
-                cn.val("");
-                // addCat(catName);
-                return true;
+        catName = catName.trim();
+        if(catName==""){
+            // alert("Write proper word for category.");
+            warningAlert("Write proper word for category.");
+        }else {
+            if(!isSymbolPresent(catName,"item_cat_c")) {
+                catName = catName.trim();
+                if(!isCatExist(catName.toLowerCase().replace(" ","_"))) {
+                    catName = catName.replace(" ","_");
+                    var li = document.createElement("li");
+                    var headline = getCatHeading(catName);
+                    catName = catName.toLowerCase();
+                    categories.push(catName);
+                    li.appendChild(headline);
+                    var ul = createUl(catName);
+                    li.appendChild(ul);
+                    // li.appendChild(createUl);
+                    cats_allcats.append(li);
+                    // alert("category "+catName.replace("_"," ")+" added successfully.");
+                    successAlert("category "+catName.replace("_"," ")+" added successfully.");
+                    // console.log(categories);
+                    cn.val("");
+                    // addCat(catName);
+                    return true;
+                }else {
+                    cn.val("");
+                    // alert(catName+" is exist. Try with different name.");
+                    errorAlert(catName+" is exist. Try with different name.");
+                }
             }else {
-                warningAlert(catName.replace("_"," ")+" category is already exist");
-                cn.val("");
-                return false;
+                warningAlertWithTitle("SYMBOLS"," must be avoided.");
             }
         }
+}
+
+function createNewCategoryEq(name) {
+    var li = document.createElement("li");
+    li.setAttribute("onclick","showItem('"+name+"')");
+    var headline = getCatHeadingEq(name);
+    var cats_allcats = $('.cats>.allcats');
+    name = name.toLowerCase();
+    categories.push(name);
+    li.appendChild(headline);
+  // li.appendChild(createUl);
+    cats_allcats.append(li);
+    // successAlert("category "+name.replace("_"," ")+" added successfully.");
+    // console.log(categories);
+    // addCat(name);
+}
+
+function getCatHeadingEq(text){
+    var h3 = document.createElement("h3");
+    var h3Text = document.createTextNode(text.replace("_"," "));
+    h3.appendChild(h3Text);
+    return h3;
 }
 
 function createNewCategory(name) {
