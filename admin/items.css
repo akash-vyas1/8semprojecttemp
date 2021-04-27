@@ -10,6 +10,7 @@
 
 body{
     width: 100%;
+    font-family: "Poppins" sans-serif;
 }
 
 .items{
@@ -22,7 +23,9 @@ body{
     box-shadow:  0 0 5px var(--blue);
 }
 .items h2 {
+    background: var(--gunmetal) !important;
     border-radius: 5px 5px 0 0 ;
+    user-select: none;
 }
 
 .items .list {
@@ -40,7 +43,7 @@ body{
 } 
 
 .items .list button {
-    width: 100px;
+    width: 120px;
     height: 50px;
     display: block;
     border: 2px solid black;
@@ -52,20 +55,29 @@ body{
     font-weight: 600;
     outline: none;
     box-shadow: 0 0 7px var(--gunmetal);
-    color: var(--gunmetal);
+    color: rgb(1, 16, 39);
 }
 
-button {
-    cursor: pointer;
+.items .list button:hover{
+    background:  var(--cerulean);
+    /* color: whitesmoke; */
 }
-
+.items .list button:active{
+    background:  rgb(196, 221, 235);
+    /* color: whitesmoke; */
+}
 
 .items .list button:active {
     box-shadow:  0 0 0 black;
 }
 
+button {
+    cursor: pointer;
+    user-select: none;
+}
+
 .items .cats  .allcats{
-    width: 300px;
+    width: 335px;
     height: 375px;
     /* padding: 10px; */
     border: 2px solid var(--gunmetal);
@@ -86,6 +98,7 @@ button {
     position: relative;
     z-index: 1;
     margin-bottom: 10px;
+    user-select: none;
 }
 
 .items .cats ul li {
@@ -117,18 +130,13 @@ button {
     display:block !important;
 }
 
-
-
-
-
-
 /* add item */
 .in {
     position: absolute;
-    width: 350px;
+    width: 355px;
     height: 460px;
     top: 80px;
-    left: 45%;
+    left: 48%;
     /* padding: 10px; */
     border: 3px solid black;
     /* display: none; */
@@ -143,7 +151,8 @@ button {
     padding: 5px;
     text-align: center;
     color: var(--sienna);
-    border-radius: 5.5px 5.5px 0 0 ;
+    border-radius: 5.5px 5.5px 0 0;
+    user-select: none;
 }
 
 .in form {
@@ -203,10 +212,14 @@ button {
     border: 2px solid var(--gunmetal);
     border-radius:4px ;
     box-shadow: 0 0 5px var(--gunmetal);
-    background: var(--blue);
+    background: rgb(46, 73, 109);
     color: #fff;
     font-size: 17px;
     word-spacing: 2px;
+}
+
+.in form button:hover{
+    background: var(--blue);
 }
 
 .in form button:active {
@@ -313,7 +326,8 @@ button {
 }
 
 .showitem .ides>p {
-    height: 70px;
+    max-height: 70px;
+    min-height: max-content;
     overflow: auto;
 }
 
@@ -342,3 +356,17 @@ button {
     height: 480px;
 }
 
+.editItemDetails {
+    border: 2px solid rgb(5, 126, 41);
+    padding: 4px;
+    border-radius: 4px;
+    background-color: rgb(232, 251, 239);
+}
+.editItemDetails:focus{
+    outline: none;
+    border: 2px solid rgb(65, 189, 112);
+}
+
+.iprice_admin {
+    width: 100px;
+}

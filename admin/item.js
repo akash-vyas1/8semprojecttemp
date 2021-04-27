@@ -1,7 +1,16 @@
 var categories = [];
 var items = [];
 var showItems = [];
+// var categories2 = ["Gujrati","Pubjabi"];
 
+function showAll(){
+    console.log("categories : ");
+    console.log(categories);
+    console.log("items : ");
+    console.log(items);
+    console.log("showItems : ");
+    console.log(showItems);
+}
 
 function addItem(){
     var iN = $('#itemname');
@@ -16,7 +25,8 @@ function addItem(){
     itemName = itemName.replace(" ","_");
     itemCat = itemCat.replace(" ","_");
     if(itemName===itemCat) {
-        alert("Item name and category must be different.");
+        // alert("Item name and category must be different.");
+        warningAlert("Item name and category must be different.");
         iC.val("");
     }else {
         addItemToCategory(itemName,itemCat);
@@ -24,7 +34,8 @@ function addItem(){
         iP.val("");
         iC.val("");
         iD.val("");
-        alert(itemName.replace("_"," ")+", added successfully to "+itemCat.replace("_"," ")+", category.");
+        // alert(itemName.replace("_"," ")+", added successfully to "+itemCat.replace("_"," ")+", category.");
+        successAlert(itemName.replace("_"," ")+", added successfully to "+itemCat.replace("_"," ")+", category.");
         var item = new Object();
         item.name = itemName;
         item.price = itemPrice;
@@ -32,42 +43,46 @@ function addItem(){
         item.des = itemDes;
         items.push(item);
         createShowItem(item);
-        console.log(items);
+        // console.log(items);
         return true;
     }
 }
 
-function saveChanges(name) {
-    var oldName = name;
-    removeFromShowItem(oldName);
-    var item = isItemPresent(name);
-    if(item!==null) {
-        // alert("in if");
-        item.name = document.getElementById(name+"name").innerText;
-        item.price = document.getElementById(name+"price").innerText;
-        item.des = document.getElementById(name+"des").innerText;
-        console.log(showItems);
-        createShowItem(item);
-        console.log(showItems);
-        // removeLi(oldName,cat);
-        document.getElementById(name+"item");
-        addItemToCategory(item.name,item.cat);
+function checkIfSame(name){
+    var item = getItem(name);
+    var tprice = document.getElementById(name+"price").innerText.trim();
+    var tdes = document.getElementById(name+"des").innerText.trim();
+    if(tprice==item.price && tdes==item.des) {
+        warningAlert("Details are same as previous. No change to details.");
         return true;
     }else {
-        // alert("false");
         return false;
     }
 }
 
-function removeFromShowItem(name) {
-    for(var i=0;i<showItems.length;i++) {
-        if(showItems[i].id===name) {
-            showItems[i]=null;
-        }
-    }
+function getPriceBack(name) {
+    var item = getItem(name);
+    document.getElementById(name+"price").innerText = item.price;
 }
 
-function isItemPresent(name){
+function saveChanges(name) {
+    var item = getItem(name);
+    item.price = document.getElementById(name+"price").innerText.trim();
+    item.des = document.getElementById(name+"des").innerText.trim();
+    // console.log(showItems);
+    document.getElementById(name+"price").innerText = item.price;
+    document.getElementById(name+"des").innerText = item.des;
+    // return true;
+    // console.log(items);
+}
+
+function getPreviousValues(name) {
+    var item = getItem(name);
+    document.getElementById(name+"price").innerText =item.price;
+    document.getElementById(name+"des").innerText=item.des;
+}
+
+function getItem(name){
     for(var i=0;i<items.length;i++) {
         // console.log(name+":"+items[i].name);
         if(items[i].name===name) {
@@ -75,12 +90,12 @@ function isItemPresent(name){
             return items[i];
         }
     }
-    return null;
 }
 
 function createShowItem(item){
     var nameSpan = getNameSpan(item.name);
     var priceSpan = getPriceSpan(item.price,item.name);
+    priceSpan.setAttribute("class","iprice_admin");
     var catSpan = getCatSpan(item.cat,item.name);
     var desSpan = getDesSpan(item.des,item.name);
     var closeBtn = getCloseItemBtn(item.name);
@@ -96,30 +111,9 @@ function createShowItem(item){
     div.appendChild(editBtn);
     div.style.display = "none";
     document.getElementById('show').appendChild(div);
-    // if(!isItemInShowItem(item.name)) {
-        showItems.push(div);
-    // }else {
-    //     for(var i=0;i<showItems.length;i++) {
-    //         // console.log(showItems[i].id+":"+name);
-    //         if(showItems[i].id===item.name) {
-    //             // console.log("equal");
-    //             showItems[i]=div;
-    //         }
-    //     }
-    // }
-    // console.log(showItems);
+    showItems.push(div);
 }
 
-function isItemInShowItem(name){
-    for(var i=0;i<showItems.length;i++) {
-        // console.log(showItems[i].id+":"+name);
-        if(showItems[i].id===name) {
-            // console.log("equal");
-            return true;
-        }
-    }
-    return false;
-}
 
 function addItemToCategory(name,cat) {
     var isExist = isCatExist(cat.toLowerCase());
@@ -167,7 +161,7 @@ function getDesSpan(des,name) {
     var span = document.createElement("span");
     span.setAttribute("class","data ides");
     var h5 = document.createElement("h5");
-    var hText = document.createTextNode("Item Discription");
+    var hText = document.createTextNode("Item Description");
     h5.appendChild(hText);
     var p = document.createElement("p");
     p.setAttribute("id",name+"des");
@@ -250,12 +244,14 @@ function addCategory(){
                 li.appendChild(ul);
                 // li.appendChild(createUl);
                 cats_allcats.append(li);
-                alert(catName.replace("_"," ")+", category added successfully.");
-                console.log(categories);
+                // alert(catName.replace("_"," ")+", category added successfully.");
+                successAlert("category "+catName.replace("_"," ")+" added successfully.");
+                // console.log(categories);
                 cn.val("");
+                // addCat(catName);
                 return true;
             }else {
-                alert(catName.replace("_"," ")+" category is already exist");
+                warningAlert(catName.replace("_"," ")+" category is already exist");
                 cn.val("");
                 return false;
             }
@@ -273,8 +269,9 @@ function createNewCategory(name) {
     li.appendChild(ul);
   // li.appendChild(createUl);
     cats_allcats.append(li);
-    alert(name+", category added successfully.");
-    console.log(categories);
+    // successAlert("category "+name.replace("_"," ")+" added successfully.");
+    // console.log(categories);
+    // addCat(name);
 }
 
 function isCatExist(name) {
@@ -293,7 +290,7 @@ function isCatExist(name) {
 
 function getCatHeading(text){
     var className = text.toLowerCase();
-    console.log(className);
+    // console.log(className);
     var h3 = document.createElement("h3");
     h3.setAttribute("class","opencat");
     h3.setAttribute("onclick","opencat('"+className+"')");

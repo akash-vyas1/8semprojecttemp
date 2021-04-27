@@ -1,3 +1,42 @@
+function successAlert(ttext){
+    Swal.fire({
+        text: ttext,
+        icon:"success",
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
+    });
+}
+
+function errorAlert(ttext){
+    Swal.fire({
+        text: ttext,
+        icon:"error",
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
+    });
+}
+
+function warningAlert(ttext){
+    Swal.fire({
+        text: ttext,
+        icon:"warning",
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
+    });
+}
+
 $(document).ready(function () {
     
     //Openorders
@@ -36,16 +75,19 @@ $(document).ready(function () {
         if(itemName!== "") {
             if(itemPrice !== ""){
                 if(itemCat!== ""){
-                    console.log("add item is being called.");
+                    // console.log("add item is being called.");
                     var added = addItem();
                 }else {
-                    alert("Item category name required.");
+                    // alert("Item category name required.");
+                    warningAlert("Item category name required.");
                 }
             }else {
-                alert("Item price required.");
+                // alert("Item price required.");
+                warningAlert("Item price required.");
             }
         }else {
-            alert("Item name required.");
+            // alert("Item name required.");
+            warningAlert("Item name required.");
         }
         if(added) {
             document.getElementById('addCat').disabled = false;
@@ -123,36 +165,70 @@ function showItem(id) {
     //     openItemDetail=false;
     // }
 }
+
+
+var firstClick = true;
 function closeItem(id){
+    closeEditable(id);
+    getPreviousValues(id);
     $("#"+id).css("display","none");
     $('.list,.cats').css("opacity","1");
+    firstClick=true;
     // openItemDetail=false;
+}
+
+function closeEditable(name) {
+    var btn = document.getElementById(name+"edit");
+    var des = document.getElementById(name+"des");
+    var price = document.getElementById(name+"price");
+    price.setAttribute("contenteditable","false");
+    des.setAttribute("contenteditable","false");
+    des.classList.remove("editItemDetails");
+    price.classList.remove("editItemDetails");
+    btn.innerText="Edit details";
 }
 
 function editItem(name) {
     var btn = document.getElementById(name+"edit");
-    // var cat = document.getElementById(name+"cat");
-    // cat.setAttribute("contenteditable","true");
     var des = document.getElementById(name+"des");
-    des.setAttribute("contenteditable","true");
     var price = document.getElementById(name+"price");
-    price.setAttribute("contenteditable","true");
-    var iname = document.getElementById(name+"name");
-    iname.setAttribute("contenteditable","true");
-    btn.innerText="Save changes"
-    btn.onclick = function(){
-        var saved = saveChanges(name);
-        if(saved) {
-            alert("Item details saved successfully.");
+    if(firstClick) {
+        des.setAttribute("contenteditable","true");
+        des.classList.add("editItemDetails");
+        price.setAttribute("contenteditable","true");
+        price.classList.add("editItemDetails");
+        btn.innerText="Save changes";
+        firstClick=false;
+    }else {
+        var same = checkIfSame(name);
+        if(!same) {
+            if(isFinite(price.innerText)){
+                saveChanges(name);
+                // alert("Item details saved successfully.");
+                successAlert(name.replace("_"," ")+"'s details updated successfully.");
+                price.setAttribute("contenteditable","false");
+                des.setAttribute("contenteditable","false");
+                des.classList.remove("editItemDetails");
+                price.classList.remove("editItemDetails");
+                btn.innerText="Edit details";
+                closeItem(name);
+                firstClick=true;    
+            }else {
+                getPriceBack(name);
+                errorAlert("Wrong number for item price. Please write correct number.");
+            }
+        }else {
+            // alert("Write correct price.");
+            warningAlert("Item details are same as previous. No change in details.");
             price.setAttribute("contenteditable","false");
-            iname.setAttribute("contenteditable","false");
             des.setAttribute("contenteditable","false");
+            des.classList.remove("editItemDetails");
+            price.classList.remove("editItemDetails");
             btn.innerText="Edit details";
             closeItem(name);
-        }else {
-            alert("No item with this name available");
+            firstClick=true;
         }
-    }    
+    }
 }
 
 
