@@ -1,3 +1,16 @@
+var categories = ["Gujrati","Punjabi","South_Indian"];
+var items = [];
+var orderItems = [];
+
+function showAll(){
+    console.log("Categories : ");
+    console.log(categories);
+    console.log("items : ");
+    console.log(items);
+    console.log("orderItems : ");
+    console.log(orderItems);
+}
+
 
 function successAlert(ttext){
     Swal.fire({
@@ -88,9 +101,6 @@ function sweetConfirmForItemDeletion(item,ttext){
     });
 }
 
-
-var categories = ["Gujrati","Punjabi","South_Indian"];
-
 var khaman = new Object();
 khaman.name = "Khaman";
 khaman.price = 100;
@@ -140,7 +150,6 @@ dosha.cat = "South Indian";
 dosha.des = "dosha is special south indian dish.";
 
 
-var items = [];
 items.push(khaman);
 items.push(chapati);
 items.push(paratha);
@@ -217,7 +226,6 @@ function addCatToContainer(name) {
     catContainer.appendChild(li);
 }
 
-var orderItems = [];
 
 var editClick1Time=false;
 
@@ -229,10 +237,11 @@ function editOrder(){
             btn.innerText="Save changes";
             editClick1Time=true;
         }else {
-            setEditableFalse();
-            saveChanges();
-            btn.innerText="Edit Order";
-            editClick1Time=false;
+            if(!saveChanges()){
+                setEditableFalse();
+                btn.innerText="Edit Order";
+                editClick1Time=false;
+            }
         }
     }else {
         // alert("Please add items to order.");
@@ -240,10 +249,24 @@ function editOrder(){
     }
 }
 
+function warningAlert(ttext){
+    Swal.fire({
+        text: ttext,
+        icon:"warning",
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
+    });
+}
+
 function saveChanges(){
     // orderItems[i].name+"foredit";
     for(var i=0;i<orderItems.length;i++) {
         // console.log(orderItems[i].name);
+        var content = document.getElementById(orderItems[i].name+"foredit");
         var quantity = document.getElementById(orderItems[i].name+"foredit").innerText;
         if(isFinite(quantity) && Number(quantity)==0){
             // var remove = confirm(orderItems[i].name+" removed from order because you select quantity equal to 0.");
@@ -255,16 +278,22 @@ function saveChanges(){
                 // sweetAlertSlowFading("item deleted successfully from order.");
             // }    
         }else if(isFinite(quantity) && Number(quantity)<=50 && Number(quantity)>0 ) {
-            orderItems[i].quantity=Number(quantity);
-            orderItems[i].sum = orderItems[i].quantity*orderItems[i].price;
-            successAlert("Order updated successfully.");
+            // if(Number(quantity)==orderItems[i].quantity) {
+            //     warningAlert("No changes to order.");
+            // }else {
+                orderItems[i].quantity=Number(quantity);
+                orderItems[i].sum = orderItems[i].quantity*orderItems[i].price;
+                successAlert("Order updated successfully.");
+            // }
         }
         // else if(isFinite(quantity) && Number(quantity)==0){
         //     orderItems[i] = null;
         // }
         else {
             // alert("Enter correct number between 0 and 50");
+            content.innerText = orderItems[i].quantity;
             sweetAlertSlowFading("Enter correct number between 0 and 50");
+            return false;
         }
     }
     addOrderedItemsToOrder();
@@ -326,17 +355,17 @@ var tableSetFirst=true;
 function addItemToOrder(id){
     var input = document.getElementById(id);
 
-    // var table = document.getElementById("tablenumber");
-    // if(table.value==undefined || table.value==0){
-    //*     // alert("Please select table number.");
-    //     sweetAlertSlowFading("Please select table number.");
-    // }
-    // else {
+    var table = document.getElementById("tablenumber");
+    if(table.value==undefined || table.value==0){
+         // alert("Please select table number.");
+        sweetAlertSlowFading("Please select table number.");
+    }
+    else {
         doThings();
-        // setTableNumber(table.value);
-        // table.setAttribute("disabled","true");
-        // tableSetFirst=false;
-    // }
+        setTableNumber(table.value);
+        table.setAttribute("disabled","true");
+        tableSetFirst=false;
+    }
 
 
     function doThings() { 

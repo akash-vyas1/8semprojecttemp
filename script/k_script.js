@@ -21,6 +21,8 @@ $(document).ready(function(){
         document.getElementById('k_login').disabled = false;
         document.getElementById('frgt_pass').disabled = false;
         document.getElementById('cust').disabled = false;
+        // window.open("../admin/admin.html");
+        // $('#admin_pass').val("");
     });
     
     $('#k_login').click(function () { 
@@ -38,6 +40,8 @@ $(document).ready(function(){
         document.getElementById('cust').disabled = false;
     });
     $('#kitchen_btn').click(function(){
+        // $('.parts').css("opacity","1");
+        // $('.k_login_section').css("display","none");
         document.getElementById('a_login').disabled = false;
         document.getElementById('frgt_pass').disabled = false;
         document.getElementById('cust').disabled = false;
@@ -63,15 +67,41 @@ $(document).ready(function(){
         document.getElementById('a_login').disabled = false;
         document.getElementById('k_login').disabled = false;
         document.getElementById('cust').disabled = false;
+        // window.open("../admin/admin.html");
     });
 
     //customer part
-    $('#cust').click(function(e){
-        var ans = confirm("Openning Customer page.ok?");
-        if(ans!=true) e.preventDefault(); 
+    $('#cust').click(function(){
+        // var ans = sweetConfirmCustOpening("Opening Customer page.ok?");
+        // var ans = 
+        sweetConfirmCustOpening("Opening Customer page.ok?");
+        // if(ans) e.preventDefault(); 
         // else e.canplay();
     });
 });
 
 
-//buttons
+function sweetConfirmCustOpening(item){
+    Swal.fire({
+        title: item,
+        icon: 'warning',
+        showCancelButton: true,
+        confirmButtonText: 'Yes, open it!',
+        cancelButtonText: 'No, keep here!',
+        showClass: {
+            popup: 'animate__animated animate__fadeInDown'
+        },
+        hideClass: {
+            popup: 'animate__animated animate__fadeOutUp'
+        }
+    }).then((result) => {
+        if (result.value) {
+            // ../customer/customer.html
+            window.open("../customer/customer.html");
+            return true;
+        } else if (result.dismiss === Swal.DismissReason.cancel) {
+            // e.preventDefault();
+            return false;
+        }
+    });
+}

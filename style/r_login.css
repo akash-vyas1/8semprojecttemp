@@ -1,54 +1,3 @@
-/* CSS HEX 
---bdazzled-blue: #3d5a80ff;
---pale-cerulean: #98c1d9ff;
---light-cyan: #e0fbfcff;
---burnt-sienna: #ee6c4dff;
---gunmetal: #293241ff;
-*/
-
-/* CSS HSL 
---bdazzled-blue: hsla(214, 35%, 37%, 1);
---pale-cerulean: hsla(202, 46%, 72%, 1);
---light-cyan: hsla(182, 82%, 93%, 1);
---burnt-sienna: hsla(12, 83%, 62%, 1);
---gunmetal: hsla(218, 23%, 21%, 1);
-*/
-
-/* SCSS HEX 
-$bdazzled-blue: #3d5a80ff;
-$pale-cerulean: #98c1d9ff;
-$light-cyan: #e0fbfcff;
-$burnt-sienna: #ee6c4dff;
-$gunmetal: #293241ff;
-*/
-
-/* SCSS HSL 
-$bdazzled-blue: hsla(214, 35%, 37%, 1);
-$pale-cerulean: hsla(202, 46%, 72%, 1);
-$light-cyan: hsla(182, 82%, 93%, 1);
-$burnt-sienna: hsla(12, 83%, 62%, 1);
-$gunmetal: hsla(218, 23%, 21%, 1);
-*/
-
-/* SCSS RGB 
-$bdazzled-blue: rgba(61, 90, 128, 1);
-$pale-cerulean: rgba(152, 193, 217, 1);
-$light-cyan: rgba(224, 251, 252, 1);
-$burnt-sienna: rgba(238, 108, 77, 1);
-$gunmetal: rgba(41, 50, 65, 1);
-*/
-
-/* SCSS Gradient 
-$gradient-top: linear-gradient(0deg, #3d5a80ff, #98c1d9ff, #e0fbfcff, #ee6c4dff, #293241ff);
-$gradient-right: linear-gradient(90deg, #3d5a80ff, #98c1d9ff, #e0fbfcff, #ee6c4dff, #293241ff);
-$gradient-bottom: linear-gradient(180deg, #3d5a80ff, #98c1d9ff, #e0fbfcff, #ee6c4dff, #293241ff);
-$gradient-left: linear-gradient(270deg, #3d5a80ff, #98c1d9ff, #e0fbfcff, #ee6c4dff, #293241ff);
-$gradient-top-right: linear-gradient(45deg, #3d5a80ff, #98c1d9ff, #e0fbfcff, #ee6c4dff, #293241ff);
-$gradient-bottom-right: linear-gradient(135deg, #3d5a80ff, #98c1d9ff, #e0fbfcff, #ee6c4dff, #293241ff);
-$gradient-top-left: linear-gradient(225deg, #3d5a80ff, #98c1d9ff, #e0fbfcff, #ee6c4dff, #293241ff);
-$gradient-bottom-left: linear-gradient(315deg, #3d5a80ff, #98c1d9ff, #e0fbfcff, #ee6c4dff, #293241ff);
-$gradient-radial: radial-gradient(#3d5a80ff, #98c1d9ff, #e0fbfcff, #ee6c4dff, #293241ff);
-*/
 
 * {
     margin: 0;
@@ -63,16 +12,16 @@ $gradient-radial: radial-gradient(#3d5a80ff, #98c1d9ff, #e0fbfcff, #ee6c4dff, #2
     --sienna: #ee6c4dff;
     --gunmetal: #293241ff;
 
-    /*
     --red: #e63946ff;
     --lightblue: #f1faeeff;
     --powderblue: #a8dadcff;
     --celadonblue: #457b9dff;
-    --prussianblue: #1d3557ff; */
+    --prussianblue: #1d3557ff; 
 }
 
 body {
     width: 100%;
+    /* min-height: 100vh; */
     min-height: 100vh;
     /* box-sizing: border-box; */
     /* background-color: var(--lightblue); */
@@ -82,24 +31,20 @@ body {
     justify-content: space-between;
     align-items: center;
     background: rgba(61, 90, 128,0.25);
+    overflow: auto;
 }
 
-/* body::after {
+body h1 {
     width: 100%;
-    height: 100%;
-    position: absolute;
-    top: 0;
-    left: 0;
-    content: "";
-    /* background: whitesmoke url("images/SVG/Rhône.svg"); */
-    /* background: url("images/dark_landscape.jpg"); */
-    /* background: var(--cyan); */
-    /* mix-blend-mode: screen; */
-    /* background-position: left bottom;
-    background-repeat: no-repeat;
-    background-size: cover; */
-    /* filter: brightness(75%); */
-/*} */
+    display: block;
+    box-sizing: border-box;
+    text-align: left;
+    background-color: var(--gunmetal);
+    line-height: 1.7;
+    color: var(--sienna);
+    padding: 3px;
+    padding-left: 70px;
+}
 
 h3 {
     width: 100%;
@@ -112,7 +57,6 @@ h3 {
     margin: 0;
     border-radius: 7px 7px 0 0;
     overflow: hidden;
-    
 }
 
 form {
@@ -141,7 +85,7 @@ form .btns {
     /* display: flex;
     flex-direction: column; */
     padding: 2px;
-    margin-bottom: 25px;
+    margin-bottom: 15px;
     border: 1.5px solid var(--gunmetal);
     background-color: var(--blue);
     border-radius: 5px;
@@ -194,11 +138,18 @@ span>label {
     background-color: #f5f5f5;
     /* border: 3px solid black; */
     border-radius: 10px;
-    margin: 10px;
     overflow: hidden;
     box-shadow: 0 0 12px var(--gunmetal);
-    margin-top: 65px;
-    z-index: 1;
+    /* z-index: 1; */
+}
+
+.reg,.fpass {
+    position: relative;
+    top: 120px;
+}
+
+.reg{
+    top: 57px;
 }
 
 
@@ -206,7 +157,7 @@ span>label {
 /*.links>a,*/
 button {
     display: block;
-    width: 115px;
+    /* width: 115px; */
     text-align: center;
     line-height: 1.5;
     box-shadow: 0 0 4px black;
@@ -219,6 +170,7 @@ button {
     background-color: var(--gunmetal);
     color: whitesmoke;
     outline: none;
+    cursor: pointer;
 }
 button:active{
     border: 2px solid var(--blue);
@@ -229,7 +181,6 @@ button:active{
 .links{
     padding: 0;
     padding-top: 5px;
-    margin-top: -12px;
 }
 
 .links>a{
@@ -245,22 +196,18 @@ button:active{
     color: var(--sienna);
 }
 
-
+a:visited{
+    color: var(--blue);
+    cursor: pointer;
+}
 
 .center {
     display: inline;
 }
 
-/* section {
-    width: 300px;
-    height: 300px;
-    border: 2px solid black;
-    background-color: var(--red);
-} */
-
 footer {
     width: 100%;
-    height: 50px;
+    height: 45px;
     text-align: right;
     background-color: var(--gunmetal);
     font-size: 19px;
@@ -283,4 +230,57 @@ footer {
 
 .fpass .btns button {
     width: 75px;
+}
+
+.forgot_pass .btns button,
+.k_login_section .btns button,
+.admin_login_section .btns button{
+    width: 130px;
+}
+
+.customer a {
+    position: relative;
+    top: -25px;
+}
+
+.reg {
+    margin-top: 25px;
+    width: 375px;
+    position: absolute;
+    display: none;
+}
+
+.rset {
+    margin: 5 0;
+}
+
+.main {
+    margin-left: 15px;
+}
+
+.main .btns {
+    position: relative;
+    left: -13px;
+    top: 10px;
+    margin-bottom: 5px;
+}
+
+.btns button{
+    margin: 0 10px;
+}
+
+.rset>input {
+    height: 35px;
+}
+.rset>label {
+    font-size: 16px;
+}
+
+.main form span {
+    width: 330px;
+}
+
+#login_submit_btn,
+#login_reset_btn {
+    width: 130px;
 }
