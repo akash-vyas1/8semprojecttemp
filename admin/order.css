@@ -12,7 +12,7 @@ body {
 }
 
 .orders{
-    display: unset;
+    display: none;
     width: 1050px !important;
     height: 550px;
     overflow: auto;

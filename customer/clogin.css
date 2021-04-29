@@ -1,0 +1,45 @@
+:root {
+    --blue: #3d5a80ff;
+    --cerulean: #98c1d9ff;
+    --cyan: #e0fbfcff;
+    --sienna: #ee6c4dff;
+    --gunmetal: #293241ff;
+}
+
+body{
+    width: 100%;
+    min-height: 100%;
+}
+
+body h1 {
+    height: 100px;
+    width: 100%;
+    height: 75px;
+    background: var(--blue);
+    line-height: 1.6;
+    text-align: center;
+    font-size: 40px;
+    color: antiquewhite;
+}
+
+.clogin {
+    width: 350px;
+    height: 340px;
+    position: relative;
+    /* top: 100px; */
+    top: 70px;
+    left: 0;
+    /* left: -300px !important; */
+    border: 2px solid  var(--gunmetal);
+    border-radius: 11px;
+    background: rgb(227, 229, 231);
+}
+.clogin .btns{
+    position: relative;
+    left: -12px;
+    top: 10px;
+}
+
+.clogin .btns button{
+    margin: 0 5px;
+}
