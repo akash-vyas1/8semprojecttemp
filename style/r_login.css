@@ -19,6 +19,10 @@
     --prussianblue: #1d3557ff; 
 }
 
+html{
+    /* filter: invert(1) hue-rotate(180deg); */
+}
+
 body {
     width: 100%;
     /* min-height: 100vh; */
@@ -30,7 +34,8 @@ body {
     flex-direction: column;
     justify-content: space-between;
     align-items: center;
-    background: rgba(61, 90, 128,0.25);
+    /* background: rgba(61, 90, 128,0.25); */
+    background-color: whitesmoke;
     overflow: auto;
 }
 
