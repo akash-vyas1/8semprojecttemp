@@ -12,7 +12,7 @@
 <body>
     <h1>Smart Restaurant</h1>
     <!-- <section class="left"></section> -->
-    <div class="login">
+    <div class="login rl">
         <h3>Restaurant Login</h3>
         <div class="main">
             <form action="Login_success.html">
@@ -25,8 +25,8 @@
                     <input type="password" name="" id="l_pass" required>
                 </span>
                 <div class="btns">
-                    <button type="reset" id="login_reset_btn" >Reset</button>
-                    <button type="submit" id="login_submit_btn" >Submit</button>
+                    <button type="reset" id="login_reset_btn" class="cancelButton" >Reset</button>
+                    <button type="submit" id="login_submit_btn" class="submitButton" >Submit</button>
                 </div>
             </form>
             <div class="links">
@@ -37,10 +37,10 @@
         </div>
     </div>
 
-    <section class="fpass">
+    <section class="fpass rl">
         <h3>Set New Password</h3>
         <div class="main">
-            <form action="#">
+            <form action="restaurant_login.html">
                 <span class="set fotp">
                     <label for="l_mail" id="f_otp_label">Enter OTP </label>
                     <input type="number" name="" id="f_otp" >
@@ -54,15 +54,15 @@
                     <input type="password" name="" id="f_pass2" >
                 </span>
                 <div class="btns">
-                    <button type="button" id="fcancel" >Cancel</button>
-                    <button type="reset" id="freset">Reset</button>
-                    <button type="submit" id="fsubmit" >Submit</button>
+                    <button type="button" id="fcancel" class="cancelButton" >Cancel</button>
+                    <button type="reset" id="freset" class="cancelButton" >Reset</button>
+                    <button type="submit" id="fsubmit" class="submitButton" >Submit</button>
                 </div>
             </form>
         </div>
     </section>
 
-    <div class="reg">
+    <div class="reg rl">
         <h3>Restaurant Registration</h3>
         <div class="main">
             <form action="Login_success.html">
@@ -72,7 +72,7 @@
                 </span>
                 <span class="rset rpass">
                     <label for="r_pass" id="r_pass_label">Set Password  </label>
-                    <input type="password" name="" id="r_pass" required>
+                    <input type="password" name="" id="r_pass">
                 </span>
                 <span class="rset lpass">
                     <label for="r_phone" id="r_phone_label">Enter Phone Number  </label>
@@ -80,12 +80,13 @@
                 </span>
                 <span class="rset lpass">
                     <label for="r_pass" id="r_rname_label">Enter Restaurant Name  </label>
-                    <input type="text" name="" id="r_rname" required>
+                    <input type="text" name="" id="r_rname">
+                    <!-- <p>Label</p> -->
                 </span>
                 <div class="btns">
-                    <button type="button" id="newregcancel" >Cancel</button>
-                    <button type="reset" id="reset">Reset</button>
-                    <button type="submit" id="newRSubmit" >Submit</button>
+                    <button type="button" id="newregcancel" class="cancelButton" >Cancel</button>
+                    <button type="reset" id="reset" class="cancelButton">Reset</button>
+                    <button type="submit" id="newRSubmit" class="submitButton" >Submit</button>
                 </div>
             </form>
         </div>

@@ -13,12 +13,12 @@ body {
 
 .orders{
     display: none;
-    width: 1050px !important;
-    height: 550px;
+    /* width: 1050px !important; */
+    /* height: 550px; */
     overflow: auto;
-    margin-top: 10px;
-    border-radius: 10px;
-    box-shadow:  0 0 5px var(--blue);
+    /* margin-top: 10px; */
+    /* border-radius: 10px; */
+    /* box-shadow:  0 0 5px var(--blue); */
     /* padding: 20px; */
     box-sizing: border-box;
 }
@@ -102,4 +102,5 @@ body {
 
 .paymentsuccess{
     background: green;
+    /* color: green; */
 }

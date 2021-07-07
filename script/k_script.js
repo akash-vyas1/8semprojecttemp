@@ -74,7 +74,7 @@ $(document).ready(function(){
     $('#cust').click(function(){
         // var ans = sweetConfirmCustOpening("Opening Customer page.ok?");
         // var ans = 
-        sweetConfirmCustOpening("Opening Customer page.ok?");
+        sweetConfirmCustOpening("Opening Customer page. ok?");
         // if(ans) e.preventDefault(); 
         // else e.canplay();
     });
@@ -85,8 +85,8 @@ function sweetConfirmCustOpening(item){
     Swal.fire({
         title: item,
         icon: 'warning',
-        showCancelButton: true,
         confirmButtonText: 'Yes, open it!',
+        showCancelButton: true,
         cancelButtonText: 'No, keep here!',
         showClass: {
             popup: 'animate__animated animate__fadeInDown'

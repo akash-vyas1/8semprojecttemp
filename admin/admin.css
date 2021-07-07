@@ -12,12 +12,12 @@
     --sienna: #ee6c4dff;
     --gunmetal: #293241ff;
 
-    /*
+    
     --red: #e63946ff;
     --lightblue: #f1faeeff;
     --powderblue: #a8dadcff;
     --celadonblue: #457b9dff;
-    --prussianblue: #1d3557ff; */
+    --prussianblue: #1d3557ff;
 }
 
 body {
@@ -35,7 +35,7 @@ body {
 
 .all {
     width: 100%;
-    min-height: 92vh;
+    min-height: 93.6vh;
     display: flex;
     flex-direction: row;
     align-items: stretch;
@@ -44,7 +44,7 @@ body {
 }
 
 .all>aside {
-    width: 250px;
+    width: 280px;
     border: 2px solid var(--gunmetal);
     border-bottom: none;
     background: rgba(61, 90, 128,0.5);
@@ -85,27 +85,27 @@ body {
 }
 
 .all aside ul li .title:hover {
-    background-color: var(--blue);
+    background-color: rgb(96, 131, 175);
     color: white;
     cursor: pointer;
     letter-spacing: 1px;
     user-select: none;
-    box-shadow: 0 0 5px var(--blue);
+    /* box-shadow: 0 0 5px var(--blue); */
 }
 
 .all aside ul li .title:active {
-    border-left: 10px solid var(--sienna);
+    border-left: 7px solid var(--sienna);
 }
 
 .all>section {
     width: 100%;
-    border: 2px solid var(--gunmetal);
-    margin-left: 20px;
+    border-left: 2px solid var(--gunmetal);
+    /* border: 2px solid var(--gunmetal); */
+    /* margin-left: 20px; */
 }
 
 .all>section>h2,.all>aside>h2 {
     text-align: center;
-    background: var(--blue);
     height: 50px;
     line-height: 1.8;
     font-size: 25px;
@@ -113,14 +113,72 @@ body {
 }
 
 .all>aside>h2{
+    z-index: 1;
     padding:7px 0;
-    background: var(--gunmetal);
+    background: var(--blue);
+    color: rgb(240, 238, 238);
     user-select: none;
+    border-bottom: 2px solid var(--gunmetal);
+}
+
+.all>section>h2{
+    /* background: var(--gunmetal); */
+    background: #ebe9e9;
+    color: var(--blue);
+    border-bottom: 2px solid var(--gunmetal);
+}
+
+.in form .cancel_btn{
+    border-radius: 4px;
+    border: 2px solid rgb(179, 179, 179);
+    box-shadow: none;
+    background: #f5f5f5;
+    color: black;
+}
+.in form .cancel_btn:hover{
+    background: rgb(231, 230, 230);
+}
+.in form .cancel_btn:active{
+    border: 2px solid rgb(141, 141, 141);
+}
+
+.in form .submit_btn{
+    border-radius: 4px;
+    border: 2px solid rgb(104, 123, 156);
+    box-shadow: none;
+}
+
+.in form .submit_btn:active{
+    border: 2px solid rgb(238, 167, 149);
+}
+
+.p_otp .resendOtp{
+    border: none;
+    box-shadow: none;
+    background: none;
+    color: black;
+    font-size: 14px;
+    font-weight: 600;
+    font-style: italic;
+    padding: 2px;
+    margin: 0;
+    position: relative;
+    top: -20px;
+    right: -75px;
+    border-radius: 0;
+    border: 1px solid var(--blue);
+}
+
+.p_otp .resendOtp:hover{
+    background: rgb(228, 228, 228);
+}
+.p_otp .resendOtp:active{
+    border: 1px solid var(--sienna);
 }
 
 footer {
     width: 100%;
-    height: 50px;
+    height: 40px;
     text-align: right;
     background-color: var(--gunmetal);
     font-size: 19px;

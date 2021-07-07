@@ -19,16 +19,18 @@
         <aside id="sidebar">
             <h2>Admin Panel</h2>
             <ul>
-                <li>
-                    <span class="icon"></span>
-                    <span class="title" id="openOrders">Orders
-                        <!-- <button type="submit" id="openOrders" >Orders</button> -->
-                    </span>
-                </li>
+
                 <li>
                     <span class="icon"></span>
                     <span class="title" id="openItems" >Items
                         <!-- <button type="submit" id="openItems" >Items</button> -->
+                    </span>
+                </li>
+
+                <li>
+                    <span class="icon"></span>
+                    <span class="title" id="openOrders">Orders
+                        <!-- <button type="submit" id="openOrders" >Orders</button> -->
                     </span>
                 </li>
 
@@ -94,8 +96,9 @@
             <section class="setApass in">
                 <h2>Set admin password</h2>
                     <form action="">
-                        <span class="input saotp">
+                        <span class="input saotp p_otp">
                             <label for="sa_otp" id="sa_otp_label">Enter OTP </label>
+                            <button type="submit" class="resendOtp">Resend OTP</button>
                             <input type="number" name="otp_admin_pass" id="sa_otp" required >
                         </span><br>
                         <span class="input sapass">
@@ -107,8 +110,8 @@
                             <input type="password" name="new_a_pass_again" id="sa_pass2" required>
                         </span><br>
                         <span class="btns">
-                            <button type="submit" id="sapassbtn">Submit</button>
-                            <button type="submit" id="sapasscancelbtn">Cancel</button>
+                            <button type="submit" id="sapasscancelbtn" class="cancel_btn">Cancel</button>
+                            <button type="submit" id="sapassbtn" class="submit_btn" >Submit</button>
                         </span>
                     </form>
             </section>
@@ -116,8 +119,9 @@
             <section class="setKpass in">
                 <h2>Set Kitchen password</h2>
                     <form action="">
-                        <span class="input skotp">
+                        <span class="input skotp p_otp">
                             <label for="sk_otp" id="sk_otp_label">Enter OTP </label>
+                            <button type="submit" class="resendOtp">Resend OTP</button>
                             <input type="number" name="otp_kitchen" id="sk_otp" required >
                         </span><br>
                         <span class="input skpass">
@@ -129,8 +133,8 @@
                             <input type="password" name="new_k_pass_again" id="sk_pass2" required >
                         </span><br>
                         <span class="btns">
-                            <button type="submit" id="skpassbtn">Submit</button>
-                            <button type="submit" id="skpasscancelbtn">Cancel</button>
+                            <button type="submit" id="skpasscancelbtn" class="cancel_btn">Cancel</button>
+                            <button type="submit" id="skpassbtn" class="submit_btn">Submit</button>
                         </span>
                     </form>
             </section>
@@ -158,33 +162,51 @@
                     </button>
                 </div>
             </div>
-            <section class="cats">
-                <ul class="allcats">
-                    <h3>Categories</h3>
-                    <!-- 
-                    <li>
-                        <h3 class="opencat" onclick="opencat('cat1')">Gujrati</h3>
-                        <ul class="tcat cat1">
-                            <li><button>Dhokla</button></li>                            
-                            <li><button onclick="showItem()">Khaman</button></li>                            
-                            <li><button>Vaghareli-Khichadi</button></li>                            
-                            <li><button>Chapati</button></li>                            
-                            <li><button>Rotala</button></li>                            
-                        </ul>
-                    </li>
-                    <li>
-                        <h3 class="opencat" onclick="opencat('cat2')">Punjabi</h3>
-                        <ul class="tcat cat2">
-                            <li ><button>Shahi-Panner</button></li>                                                       
-                        </ul>
-                    </li> -->
-                </ul>
-            </section>
+
+            <div class="allItems">
+
+                <section class="cats">
+                    <ul class="allcats">
+                        <h3>Categories</h3>
+                        
+                        <!-- <li>
+                            <h3 class="opencat" onclick="opencat('cat1')">Gujrati</h3>
+                            <ul class="tcat cat1">
+                                <li><button>Dhokla</button></li>                            
+                                <li><button onclick="showItem()">Khaman</button></li>                            
+                                <li><button>Vaghareli-Khichadi</button></li>                            
+                                <li><button>Chapati</button></li>                            
+                                <li><button>Rotala</button></li>                            
+                            </ul>
+                        </li>
+                        <li>
+                            <h3 class="opencat" onclick="opencat('cat2')">Punjabi</h3>
+                            <ul class="tcat cat2">
+                                <li ><button>Shahi-Panner</button></li>                                                       
+                            </ul>
+                        </li> -->
+                    </ul>
+                </section>
+                
+                <section class="itemsAsCats">
+                    <ul class="allItemsAsCats">
+                        <h3>Items</h3>
+                        
+                        <!-- <li>
+                            <h3 class="opencat" onclick="opencat('cat1')">Gujrati</h3>
+                        </li>
+                        <li>
+                            <h3 class="opencat" onclick="opencat('cat1')">Gujrati</h3>
+                        </li> -->
+                    </ul>
+                </section>
+
+            </div>
         
             <div class="additem in">
                 <h2>Add Item</h2>
                 <form action="#">
-                    <span class="input additm catEqItem">
+                    <span class="input additm catEqItem" id="cat-eq-item-span">
                         <label for="cat_eq_item" id="cat_eq_item_label">
                             Check this if want category as item
                             <input type="checkbox" name="" id="cat_eq_item" >
@@ -207,8 +229,8 @@
                         <textarea name="ides" id="description_i" cols="30" rows="5" placeholder="Optional"></textarea>
                     </span><br>
                     <span class="btns">
-                        <button type="button" id="addItemBtn">Add Item</button>
-                        <button type="button" id="addItemCancel">Cancel</button>
+                        <button type="button" id="addItemCancel" class="cancel_btn">Cancel</button>
+                        <button type="button" id="addItemBtn" class="submit_btn">Add Item</button>
                     </span>
                 </form>
             </div>
@@ -225,8 +247,8 @@
                             <textarea name="" id="description_c" cols="30" rows="5" placeholder="Optional"></textarea>
                         </span><br> -->
                         <span class="btns">
-                            <button type="button" id="addCatBtn" >Add</button>
-                            <button type="button" id="addCatCancel">Cancel</button>
+                            <button type="button" id="addCatCancel" class="cancel_btn" >Cancel</button>
+                            <button type="button" id="addCatBtn" class="submit_btn" >Add</button>
                         </span>
                     </form>
                 </div>

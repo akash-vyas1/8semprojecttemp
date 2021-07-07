@@ -62,7 +62,7 @@ $(document).ready(function () {
     //OpenItems
     $('#openItems').click(function () {
         $('.side').css("display","none");
-        $('.items,.cats').css("display","unset");
+        $('.items,.cats,.itemsAsCats').css("display","unset");
     });
     
     //opensetpassword
@@ -74,30 +74,68 @@ $(document).ready(function () {
     //add item
     $('#addItem').click(function (){
         $('.additem').css("display","unset");
-        $('.list,.cats,.allcats').css("opacity","0.4");
+        $('.list,.cats,.allcats,.itemsAsCats').css("opacity","0.4");
         document.getElementById('addCat').disabled = true;
     });
     $('#addItemCancel').click(function(){
-        $('.list,.cats,.allcats').css("opacity","1");
+        $('.list,.cats,.allcats,.itemsAsCats').css("opacity","1");
         $('.additem').css("display","none");
         document.getElementById('addCat').disabled = false;
+        document.getElementById('cat_eq_item').checked=false;
+        closePanel();
     });
+
+    let click=true;
+    $('#cat_eq_item').click(function () { 
+        var checkbox = document.getElementById('cat_eq_item');
+        var iC = document.getElementById('item_cat_i');
+        if(click){
+            // checkbox.setAttribute('checked','true');
+            iC.setAttribute('disabled','true');
+            $('#item_cat_i').val('Will be same as item name');
+            iC.style.backgroundColor = 'rgb(199, 199, 199)';
+            click=false;
+        }else {
+            // checkbox.removeAttribute('checked');
+            iC.removeAttribute('disabled');
+            $('#item_cat_i').val('');
+            iC.style.backgroundColor = '#f5f5f5';
+            click=true;
+        }
+    });
+
+
+    function closePanel(){
+        var iC = document.getElementById('item_cat_i');
+        iC.removeAttribute('disabled');
+        $('#item_cat_i').val('');
+        iC.style.backgroundColor = '#f5f5f5';
+        click=true;
+    }
+
     $('#addItemBtn').click(function(){
         var itemName = $('#itemname').val();
         var itemPrice = $('#item_price').val();
         var itemCat = $('#item_cat_i').val();
         if(itemName!== "") {
             if(itemPrice !== ""){
-                if(itemCat!== ""){
+                var check = document.getElementById('cat_eq_item');
+                // alert(check.checked);
+                var isChecked = check.checked;
+                if(itemCat!== "" && !isChecked ){
                     // console.log("add item is being called.");
                     var added = addItem();
-                    if(added) {
-                        var check = document.getElementById('cat_eq_item');
-                        check.checked=false;
-                    }
                 }else {
                     // alert("Item category name required.");
-                    warningAlert("Item category name required.");
+                    if(!isChecked){
+                        warningAlert("Item's category name required.");
+                    }else {
+                        var added = addItem();
+                        if(added) {
+                        check.checked=false;
+                        closePanel();
+                        }
+                    }
                 }
             }else {
                 // alert("Item price required.");
@@ -110,7 +148,7 @@ $(document).ready(function () {
         if(added) {
             document.getElementById('addCat').disabled = false;
             $('.additem').css("display","none");
-            $('.list,.cats,.allcats').css("opacity","1");
+            $('.list,.cats,.allcats,.itemsAsCats').css("opacity","1");
         }
     });
 
@@ -118,11 +156,11 @@ $(document).ready(function () {
     
     $('#addCat').click(function (){
         $('.addcat').css("display","unset");
-        $('.list,.cats,.allcats').css("opacity","0.4");
+        $('.list,.cats,.allcats,.itemsAsCats').css("opacity","0.4");
         document.getElementById('addItem').disabled = true;
     });
     $('#addCatCancel').click(function(){
-        $('.list,.cats,.allcats').css("opacity","1");
+        $('.list,.cats,.allcats,.itemsAsCats').css("opacity","1");
         $('.addcat').css("display","none");
         document.getElementById('addItem').disabled = false;
     });
@@ -132,7 +170,7 @@ $(document).ready(function () {
         if(added) {
             document.getElementById('addItem').disabled = false;
             $('.addcat').css("display","none");
-            $('.list,.cats,.allcats').css("opacity","1");
+            $('.list,.cats,.allcats,.itemsAsCats').css("opacity","1");
         }
     });
 
@@ -175,7 +213,7 @@ function showItem(id) {
     // if(openItemDetail==false) {
         $('.showitem').css("display","none");
         $("#"+id).css("display","unset");
-        $('.list,.cats').css("opacity","0.45");
+        $('.list,.cats,.itemsAsCats').css("opacity","0.45");
         // openItemDetail=true;
     // }else {
     //     $("#"+id).css("display","none");
@@ -190,7 +228,7 @@ function closeItem(id){
     closeEditable(id);
     getPreviousValues(id);
     $("#"+id).css("display","none");
-    $('.list,.cats').css("opacity","1");
+    $('.list,.cats,.itemsAsCats').css("opacity","1");
     firstClick=true;
     // openItemDetail=false;
 }

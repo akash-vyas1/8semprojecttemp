@@ -27,6 +27,17 @@ $(document).ready(function() {
         $('.reg').css("display","none");
     });
 
+    $('#newRSubmit').click(function(){
+        var rMail = $('#r_mail');
+        var rPass = $('#r_pass');
+        // var rPhone = $('#r_phone');
+        var rName = $('#r_rname');
+        if(rPass.val().trim()=="" && rMail.val()!="" ){
+            warningAlert("Password required.");
+        }else if(rName.val().trim()==""){
+            warningAlert("Restaurant name required.");
+        }
+    });
 
     $("#fsubmit").click(function(){
         var p1 = $("#f_pass1");

@@ -4,20 +4,22 @@ body {
 
 .setpassword{
     display: none;
-    width: 1050px !important;
-    height: 550px;
+    /* width: 1050px !important; */
+    /* height: 550px; */
     overflow: auto;
-    margin-top: 10px;
-    border-radius: 10px;
-    box-shadow:  0 0 5px var(--blue);
+    /* margin-top: 10px; */
+    /* border-radius: 10px; */
+    /* box-shadow:  0 0 5px var(--blue); */
     /* padding: 20px; */
     box-sizing: border-box;
 }
 
 #setpassbtns {
-    display: block;
+    display: flex;
+    align-items: center;
+    justify-content: center;
     margin-top: 40px;
-    margin-left: 50px;
+    /* margin-left: 50px; */
 }
 
 #setpassbtns button:active {
@@ -46,9 +48,13 @@ body {
 
 
 .setApass,.setKpass {
-    height: 340px;
+    height: 360px;
     top: 27%;
     left: 25.5%;
+}
+
+.btns{
+    margin-top: 10px;
 }
 
 .setKpass {

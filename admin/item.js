@@ -21,6 +21,51 @@ function showAll(){
     console.log(showItems);
 }
 
+
+function ItemAsCat(){
+    var iN = $('#itemname');
+    var iP = $('#item_price');
+    var iC = $('#item_cat_i');
+    var iD = $('#description_i');
+
+    var itemName = $('#itemname').val();
+    var itemPrice = $('#item_price').val();
+    var itemDes = $('#description_i').val();
+    itemName = itemName.replace(" ","_").trim();
+    var catExist = isCatExist(itemName.toLowerCase());
+    if(catExist) {
+        errorAlert("Category already exist.Please try with different one.");
+    }else {
+            var symbolPresent = isSymbolPresent(itemName,"itemname");
+            if(!symbolPresent) {
+                createNewCategoryEq(itemName);
+                iN.val("");
+                iP.val("");
+                // iC.val("");
+                iD.val("");
+                var item = new Object();
+                item.name = itemName;
+                item.price = itemPrice;
+                item.cat = itemName;
+                item.des = itemDes;
+                items.push(item);
+                createShowItem(item,'cat');
+                successAlert(itemName.replace("_"," ")+", added successfully as "+itemName.replace("_"," ")+" category.");
+                return true;
+            }else{
+                warningAlertWithTitle("SYMBOLS"," must be avoided.");
+            }
+    }
+}
+
+// function closePanel(){
+//     var iC = document.getElementById('item_cat_i');
+//     iC.removeAttribute('disabled');
+//     $('#item_cat_i').val('');
+//     iC.style.backgroundColor = '#f5f5f5';
+// }
+
+
 function addItem(){
     var iN = $('#itemname');
     var iP = $('#item_price');
@@ -34,41 +79,8 @@ function addItem(){
     itemName = itemName.replace(" ","_").trim();
     itemCat = itemCat.replace(" ","_").trim();
     if($('#cat_eq_item').is(':checked')) {
-        // alert("Checkbox is checked !");
-        // console.log("Checkbox is checked !");
-        var catExist = isCatExist(itemCat.toLowerCase());
-        var itemExist = isItemPresent(itemName);
-        if(catExist) {
-            errorAlert("Category already exist.Please try with different one.");
-        }else if(itemExist) {
-            errorAlert(itemName+" already exist.Please try with different one.");
-        }else {
-            // alert("success.");
-            if(itemName===itemCat) {
-                var symbolPresent = isSymbolPresent(itemName,"itemname");
-                if(!symbolPresent) {
-                    createNewCategoryEq(itemCat);
-                    iN.val("");
-                    iP.val("");
-                    iC.val("");
-                    iD.val("");
-                    var item = new Object();
-                    item.name = itemName;
-                    item.price = itemPrice;
-                    item.cat = itemCat;
-                    item.des = itemDes;
-                    items.push(item);
-                    createShowItem(item);
-                    successAlert(itemName.replace("_"," ")+", added successfully as "+itemCat.replace("_"," ")+" category.");
-                    return true;
-                }else{
-                    warningAlertWithTitle("SYMBOLS"," must be avoided.");
-                }
-            }else {
-                warningAlert("Item name and category name must be same. Because you check that option.");
-                iC.val(itemName);
-            }
-        }
+        // alert('checked');
+        return ItemAsCat();
     }else {
         if(itemName===itemCat) {
             // alert("Item name and category must be different.");
@@ -394,12 +406,13 @@ function createNewCategoryEq(name) {
     var li = document.createElement("li");
     li.setAttribute("onclick","showItem('"+name+"')");
     var headline = getCatHeadingEq(name);
-    var cats_allcats = $('.cats>.allcats');
+    // headline.style.color='green';
+    var catAsItem = $('.allItemsAsCats');
     name = name.toLowerCase();
     categories.push(name);
     li.appendChild(headline);
   // li.appendChild(createUl);
-    cats_allcats.append(li);
+    catAsItem.append(li);
     // successAlert("category "+name.replace("_"," ")+" added successfully.");
     // console.log(categories);
     // addCat(name);

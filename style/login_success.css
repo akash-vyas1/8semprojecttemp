@@ -71,13 +71,13 @@ section>h2 {
     border-radius: 3px 3px 0 0;
 }
 
-section>button,#cust {
+section>button {
     width: 115px;
     font-size: 18px;
-    border: 2px solid var(--gunmetal);
+    border: 2px solid rgb(68, 95, 131);
     outline: none;
     padding: 7px 15px;
-    box-shadow: 0 0 4px var(--gunmetal);
+    /* box-shadow: 0 0 4px var(--gunmetal); */
     border-radius: 5px;
     margin: 10px 0;
     background: var(--gunmetal);
@@ -87,15 +87,11 @@ section>button,#cust {
     margin: 0 10px;
 }
 
-.btns>a:active,#cust:active {
-    color: whitesmoke;
-}
-
 .links {
     margin-top: 10px !important;
 }
 
-#frgt_pass ,#set_admin_pass{
+#frgt_pass {
     width: 210px;
     border: none;
     outline: none;
@@ -117,22 +113,8 @@ button{
     cursor: pointer;
 }
 
-#k_login {
+#k_login,#cust {
     margin-top: 5px;
-}
-
-section>button:active {
-    box-shadow: 0 0 0 grey;
-}
-
-section>a {
-    display: block;
-    width: 200px;
-    text-align: center;
-    margin: 7px 0;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 17px;
 }
 
 
@@ -155,25 +137,33 @@ section>a {
 .admin>button:active,
 .customer>button:active,
 .kitchen>button:active,#cust:active {
-    border: 2px solid var(--sienna);
-    box-shadow: 0 0 0 grey;
+    border: 2px solid rgb(236, 138, 114);
 }
 
-button>a,#cust {
-    text-decoration: none;
+
+.ls_login,.ls_cancel{
     color: white;
+    border: 2px solid rgb(160, 189, 226);
+    font-size: 18px;
+    background-color: var(--blue);
 }
 
-#cust{
-    background: var(--gunmetal);
-    padding: 8px 0px;
-    margin-top: 30px;
+.ls_cancel{
+    color: black;
+    border: 2px solid rgb(170, 167, 167);
+    background-color: rgb(218, 216, 216);
 }
 
+.ls_login:active{
+    border: 2px solid rgb(238, 157, 136);
+}
+.ls_cancel:active{
+    border: 2px solid rgb(144, 143, 143);
+}
 
 footer {
     width: 100%;
-    height: 50px;
+    height: 40px;
     text-align: right;
     background-color: var(--gunmetal);
     font-size: 19px;
