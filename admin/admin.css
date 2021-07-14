@@ -128,27 +128,27 @@ body {
     border-bottom: 2px solid var(--gunmetal);
 }
 
-.in form .cancel_btn{
+.in form .cancel_btn,.showitem .closeItemBtn{
     border-radius: 4px;
     border: 2px solid rgb(179, 179, 179);
     box-shadow: none;
     background: #f5f5f5;
     color: black;
 }
-.in form .cancel_btn:hover{
+.in form .cancel_btn:hover,.showitem .closeItemBtn:hover{
     background: rgb(231, 230, 230);
 }
-.in form .cancel_btn:active{
+.in form .cancel_btn:active,.showitem .closeItemBtn:active{
     border: 2px solid rgb(141, 141, 141);
 }
 
-.in form .submit_btn{
+.in form .submit_btn,.showitem .edititembtn{
     border-radius: 4px;
     border: 2px solid rgb(104, 123, 156);
     box-shadow: none;
 }
 
-.in form .submit_btn:active{
+.in form .submit_btn:active,.showitem .edititembtn:active{
     border: 2px solid rgb(238, 167, 149);
 }
 
@@ -175,6 +175,7 @@ body {
 .p_otp .resendOtp:active{
     border: 1px solid var(--sienna);
 }
+
 
 footer {
     width: 100%;

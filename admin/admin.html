@@ -12,6 +12,12 @@
     <!-- <link rel="stylesheet" href="../sweetalert2-10.16.6/package/dist/sweetalert2.min.css"> -->
     <!-- <link rel="stylesheet" href="../style/login_success.css" type="text/css"> -->
     <link rel="stylesheet" href="" type="text/css">
+    <style>
+        #deleteSelCat{
+            width: 150px;
+            display: none;
+        }
+    </style>
 </head>
 <body>
 
@@ -120,9 +126,9 @@
                 <h2>Set Kitchen password</h2>
                     <form action="">
                         <span class="input skotp p_otp">
-                            <label for="sk_otp" id="sk_otp_label">Enter OTP </label>
+                            <label for="sk_otp" id="sk_otp_label" >Enter OTP </label>
                             <button type="submit" class="resendOtp">Resend OTP</button>
-                            <input type="number" name="otp_kitchen" id="sk_otp" required >
+                            <input type="number" name="otp_kitchen" id="sk_otp"  required >
                         </span><br>
                         <span class="input skpass">
                             <label for="sk_pass" id="sk_pass_label">Enter new password  </label>
@@ -154,6 +160,9 @@
                     </button>
                 </div>
                 <div class="remove">
+                    <button type="button" id="deleteSelCat" >
+                        Delete selected categories
+                    </button>
                     <button type="button" id="deleteCat" >
                         Delete Category
                     </button>

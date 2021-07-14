@@ -12,6 +12,137 @@ function isItemPresent(name){
     return false;
 }
 
+
+//deleting category and item
+
+
+let dClick=true;
+let btnVisible=false;
+$('#deleteCat').click(function (){
+    let checks = document.querySelectorAll('.checkBoxForDelete');
+    let length = checks.length;
+    let delBtn = document.getElementById('deleteCat');
+    if(dClick){
+        for(i=0;i<length;i++){
+            checks[i].style.display='unset';
+        }
+        if(length!=0){
+            delBtn.innerText='Undo';
+            $('#deleteSelCat').css('display','none');
+        }
+
+        for(i=0;i<length;i++){
+            console.log(categories[i]);
+            $('#'+categories[i]+'checkBoxForDelete').click(function(){
+                if(!btnVisible){
+                    $('#deleteSelCat').css('display','unset');
+                    btnVisible=true;
+                }
+                // let h3 = document.getElementById(categories[i]+'h3');
+                // h3.removeAttribute('onclick');
+                // else {
+                    //     btnVisible=false;
+                    // }
+            });
+            if(btnVisible)  break;
+        }
+
+        dClick=false;
+    }else {
+        for(i=0;i<length;i++){
+            $('#'+categories[i]+'checkBoxForDelete').click(function(){
+                if(!btnVisible){
+                    $('#deleteSelCat').css('display','unset');
+                    btnVisible=true;
+                }
+                // let h3 = document.getElementById(categories[i]+'h3');
+                // h3.removeAttribute('onclick');
+                // else{
+                    //     btnVisible=false;
+                    // }
+            });
+            if(btnVisible) break;
+        }
+
+        let isChecked = false;
+        let selected = 0;
+        // console.log(checks.length);
+        for(i=0;i<length;i++){
+            // console.log(checks[i].checked);
+            if(checks[i].checked==true){
+                isChecked=true;
+                selected=selected+1;
+            }
+        }
+        // console.log('isChecked : '+isChecked);
+        if(isChecked){
+            let ok = confirm('Will unselect \''+selected+'\' selected categories. OK?');
+            if(ok){
+                for(i=0;i<length;i++){
+                    // alert('unchecked '+checks[i]);
+                    checks[i].checked=false;
+                    checks[i].style.display='none';
+                }
+                $('#deleteSelCat').css('display','none');
+                btnVisible=false;
+                delBtn.innerText='Delete Category';
+                dClick=true;
+            }
+        }else {
+            // console.log('else of else');
+            for(i=0;i<length;i++){
+                // alert('unchecked',checks[i]);
+                checks[i].checked=false;
+                checks[i].style.display='none';
+            }
+            $('#deleteSelCat').css('display','none');
+            btnVisible=false;
+            delBtn.innerText='Delete Category';
+            dClick=true;
+        }
+    }
+});
+
+//deleteSelCat
+$('#deleteSelCat').click(function(){
+    let checks = document.querySelectorAll('.checkBoxForDelete');
+    let length = checks.length;
+    let checkedCat= [];
+    let anyChecked = false;
+    let delBtn = document.getElementById('deleteCat');
+    for(i=0;i<length;i++) {
+        if(checks[i].checked==true){
+            checkedCat.push(checks[i].id.replace('checkBoxForDelete',''));
+            anyChecked=true;
+        }
+    }
+    if(anyChecked){
+        let len=checkedCat.length;
+        for(i=0;i<len;i++){
+            for(j=0;j<categories.length;j++) {
+                if(categories[j]==checkedCat[i]){
+                    console.log(categories[j]+':'+checkedCat[i]);
+                    categories.splice(j,1);
+                    break;
+                }
+            }
+        }
+        alert('categories deleted successfully');
+        for(i=0;i<length;i++){
+            // alert('unchecked',checks[i]);
+            checks[i].checked=false;
+            checks[i].style.display='none';
+        }
+        $('#deleteSelCat').css('display','none');
+        delBtn.innerText='Delete Category';
+    }else {
+        alert('No category is selected!');
+    }
+});
+
+
+
+
 function showAll(){
     console.log("categories : ");
     console.log(categories);
@@ -229,7 +360,8 @@ function getEditItemBtn(name){
 function getCloseItemBtn(name){
     name = name.replace(" ","_");
     var button = document.createElement("button");
-    button.setAttribute("type","submit");
+    button.setAttribute("type","button");
+    button.setAttribute('class','closeItemBtn');
     button.setAttribute("onclick","closeItem('"+name+"')");
     var text = document.createTextNode("Close");
     button.appendChild(text);
@@ -289,7 +421,6 @@ function getPriceSpan(price,name) {
 }
 
 function getNameSpan(name){
-
     var span = document.createElement("span");
     span.setAttribute("class","data iname");
     var h5 = document.createElement("h5");
@@ -379,6 +510,7 @@ function addCategory(){
                     var li = document.createElement("li");
                     var headline = getCatHeading(catName);
                     catName = catName.toLowerCase();
+                    // console.log(catName);
                     categories.push(catName);
                     li.appendChild(headline);
                     var ul = createUl(catName);
@@ -400,6 +532,19 @@ function addCategory(){
                 warningAlertWithTitle("SYMBOLS"," must be avoided.");
             }
         }
+}
+
+function isCatExist(name) {
+    var len = categories.length;
+    var isExist = false; 
+    if(len!=0) {
+        for(var i=0;i<len;i++) {
+            if(categories[i]===name) {
+                isExist=true;
+            }
+        }
+    }
+    return isExist;
 }
 
 function createNewCategoryEq(name) {
@@ -430,6 +575,7 @@ function createNewCategory(name) {
     var headline = getCatHeading(name);
     var cats_allcats = $('.cats>.allcats');
     name = name.toLowerCase();
+    // console.log(name);
     categories.push(name);
     li.appendChild(headline);
     var ul = createUl(name);
@@ -441,28 +587,24 @@ function createNewCategory(name) {
     // addCat(name);
 }
 
-function isCatExist(name) {
-    var len = categories.length;
-    var isExist = false; 
-    if(len!=0) {
-        for(var i=0;i<len;i++) {
-            if(categories[i]===name) {
-                isExist=true;
-            }
-        }
-    }
-    return isExist;
-}
-
-
 function getCatHeading(text){
     var className = text.toLowerCase();
     // console.log(className);
     var h3 = document.createElement("h3");
+    h3.setAttribute('id',text.toLowerCase()+'h3');
+    // console.log(text.toLowerCase()+'h3');
     h3.setAttribute("class","opencat");
     h3.setAttribute("onclick","opencat('"+className+"')");
     var h3Text = document.createTextNode(text.replace("_"," "));
     h3.appendChild(h3Text);
+    let checkBox = document.createElement('input');
+    checkBox.type='checkbox';
+    checkBox.setAttribute('id',text.toLowerCase()+'checkBoxForDelete');
+    checkBox.setAttribute('class','checkBoxForDelete');
+    console.log(text+'checkBoxForDelete');
+    checkBox.style.marginRight='10px';
+    checkBox.style.display='none';
+    h3.prepend(checkBox);
     return h3;
 }
 
